@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+	
+<hmtl lang="de">
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css"/>
+		<title>Windmann Laubbläser</title>
+	</head>
+	
+	<body>
+
+		<header>
+			<div class="header">
+			
+				<div id="upper_header">
+				    <img  src="images/logo.png" width="100px" height="100px" alt="Logo von Windmann"/>
+				    <h1>WINDMANN</h1>
+				    <h2>Wissen, woher der Wind weht</h2>
+				</div>
+			
+			    <nav>
+			    	<ul>
+				    	<li><a href = "index.html">Home</a></li>
+				    	<li><a href = "#">Produkte</a></li>
+				    	<li><a href = "#">Service</a></li>
+				    	<li id="nav_highlighted"><a href = "community.html">Community</a></li>
+				    	<li><a href = "#">Impressum</a></li>
+				    	<li><a href = "#">Warenkorb</a></li>
+				    </ul>
+			    </nav>			
+			</div>
+		</header>
+		
+	    <!--Seitencontent-->	
+		<main class="content">
+            <div id="lower_header">
+                <img src="community.jpg" alt="Community" width="100%"/>
+                <h1>Community</h1>
+            </div>
+            <div id="community_content">
+                <p>Willkommen im Community-Bereich!<br>
+                Sie haben einen Laubbläser bei uns erworben? Dann können Sie uns hier mitteilen, ob Sie mit unserem Service und Ihrem neuen Gerät zufrieden sind.</p>
+                <div class="content_left">
+                    <h3>Das sagen unsere Kunden:</h3>
+                    <table>
+                        <tr><td>Hansi<br><em>WM 2500</em></td><td>Lieferung und Bestellung waren unkompliziert, die Geräte funktionieren einwandfrei.</td></tr>
+                        <tr><td>Felix Fischer<br><em>WM 1000</em></td><td>Ausgeliefertes Produkt war defekt aber habe direkt ein neues zugeschickt bekommen. Super Service!</td></tr>
+                        <tr><td>bettina<br><em>WM Super 22</em></td><td>Alles super. Gerne wieder !!!</td></tr>
+                        <tr><td>Anonym<br><em>WM 8000</em></td><td>Superschnelle und zuverlässige Abwicklung, Vielen Dank!</td></tr>
+                    </table>    
+                </div>
+                <div class="content_right">
+                    <h3>Verfasse eine Rezension!</h3>
+                    <form action="rezension">
+                        <label for="name">Name:</label><br>
+                        <input type="text"><br><br>
+                        <label for="bestellnr">Bestellnummer:</label><br>
+                        <input type="number" required><br><br>
+                        <label for="produkt">Produkt</label><br>
+                        <select name="produkte">
+                            <option value="0" selected>-</option>
+                            <option value="1">WM 2500</option>
+                            <option value="2">WM 2600</option>
+                            <option value="3">WM 1000</option>
+                            <option value="4">WM Super 300</option>
+                            <option value="5">WM 50 Lite</option>
+                            <option value="6">WM Super 22</option>
+                            <option value="7">WM 55 Lite</option>
+                            <option value="8">WM Super 121</option>
+                            <option value="9">WM 1111</option>
+                            <option value="10">WM 8000</option>
+                          </select><br><br>
+                        <label for="kommentar">Kommentar</label><br>
+                        <textarea rows="10"></textarea><br><br>
+                        <input type="checkbox">
+                        <label for="checkbox">Ich habe die Datenschutzverordnung gelesen und bin einverstanden.</label><br><br>
+                        <input type="submit">
+                    </form>
+                </div>
+            </div>
+		</main>
+		
+		<!-- Fusszeile -->
+		<footer>
+			<div class="footer_element">
+				<h5>Impressum</h5>
+			</div>
+
+			<div class="footer_element">
+				<h5>Kontakt</h5>
+				<h6>service@laubblaeser.de</h6>
+				<p>Öffnungszeiten:</p>
+				<p>Mo-Fr</p>
+				<p>10-16 Uhr</p>
+			</div>
+
+			<div class="footer_element">
+				<h5>Telefon/Fax</h5>
+				<h6>Tel: 0800 912345</h6>
+				<p>Fax: 0800 912346</p>
+			</div>
+
+			<div class="footer_element">
+				<h5>Hilfe</h5>
+				<h6>Kundenservice</h6>
+			</div>
+		</footer>
+		
+	</body>
+</html>

@@ -312,3 +312,46 @@ main.content .faq:last-child {
     padding-bottom:100px;
     border-bottom: none;
 }
+/* Style Community-Seite: */
+    
+#lower_header{
+    background: #FEE193;
+}
+#community_content{
+    padding: 20px 30px 20px 10px;
+}
+.content_left{
+    vertical-align: top;
+    width: 60%;
+    display: inline-block;
+    margin-right: 4%;
+}
+.content_left table{
+    width: 100%;
+    border: thin solid;
+    background: white;
+    border-collapse: collapse;
+    min-height: 25em;
+}
+.content_left td{
+    vertical-align: top;
+    padding: 10px;
+    border: thin solid;
+    min-height: 30em;
+}
+
+.content_right{
+    width: 35%;
+    display:inline-block;
+}
+main h1{
+    text-align: center;
+    padding: 10px;
+}
+main h3{
+    padding: 20px 0;
+}  
+.content{
+    font-size: 13pt;
+}
+/*Ende Community-Seite*/
