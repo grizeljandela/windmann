@@ -131,3 +131,91 @@ footer {
     font-weight: normal;
     font-size: 11pt;
 }
+
+/*Homepage*/
+
+main{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+main > h3{
+    display: block;
+    border-color: black;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-weight: normal;
+}
+
+.empfehlung{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 20px;
+    border-color: black;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid; 
+    
+}
+
+
+.artikel{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+
+.artikel > img{
+    border: 1px solid;
+    border-color: black;
+    margin-bottom: 5px;
+}
+
+.news{
+    display: flex;
+    flex-direction: column;
+    border-color: black;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+
+}
+
+.news > h4{
+    font-size: 16pt;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.news > h5{
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 20px; 
+    font-weight: bold; 
+}
+
+.news > p{
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+}
+
+span.bold{
+    font-weight: bold;
+}
+
+span.mail{
+    color: cornflowerblue;
+    font-style: italic;
+    text-decoration: underline;
+}
+
