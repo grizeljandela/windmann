@@ -355,3 +355,24 @@ main h3{
     font-size: 13pt;
 }
 /*Ende Community-Seite*/
+
+/* Ab hier Impressum */
+
+.impressum_box{
+	padding-right: 20px;
+	padding-left: 20px;
+	line-height: 26px;
+}
+
+.impressum_ul{
+padding: 10px 0px 20px 15px;
+}
+
+.impressum_ul_hidden{
+padding: 10px 0 20px 0;
+list-style: none;
+
+}
+
+/* Ende Impressum */
+
