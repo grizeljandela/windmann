@@ -219,3 +219,96 @@ span.mail{
     text-decoration: underline;
 }
 
+
+
+/* Service */
+
+/* Titel und Titelbild */
+.titel img {
+    width:100%;
+}
+
+.titel {
+    background-color: #FEE193;
+}
+
+.titel h1 {
+    padding: 15px;
+    font-size: 40px;
+    text-align: center;
+    margin-top: -4px;
+}
+
+
+/* Service Abschnitte */
+
+@media screen and (min-width: 768px) {
+    main.content .abschnitt:nth-child(4),
+    main.content .abschnitt:nth-child(5) {
+        align-items: flex-start; /* oben gehoben für kleinere Abschnitte */
+    }
+}
+
+.abschnitt {
+    padding: 20px;
+    display: flex; /* items von div nebeneinander */
+    justify-content: space-between; /* gleich Abstand zwischen items von dieser div */
+    align-items: center;  /* zentriert anhand der Höhe */
+    border-bottom: 1px solid #868686;
+}
+
+main.content .abschnitt:nth-child(6) {
+    padding-bottom:100px;
+}
+
+.abschnitt_text {
+    width: 70%;
+}
+
+.abschnitt img {
+    width: 250px;
+    height: 250px;
+    margin-left: 20px;
+}
+
+.abschnitt_headline {
+    color: #FB9A63;
+    font-size: 30px; 
+}
+
+.abschnitt_text p {
+    margin-bottom: 15px;
+}
+
+.abschnitt_text h3 {
+    margin-bottom: 20px;
+}
+
+
+/* Service FAQs */
+
+.faq_titel, .faq {
+    padding: 20px;
+    border-bottom: 1px solid #868686;
+}
+
+.faq_titel h3 {
+    color: #FB9A63;
+    font-size: 22px;
+    margin-bottom:20px;
+}
+
+.faq_titel h4 {
+    font-size: 18px;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+.faq h3 {
+    margin-bottom: 15px;
+}
+
+main.content .faq:last-child {
+    padding-bottom:100px;
+    border-bottom: none;
+}
