@@ -505,6 +505,215 @@ span.img{
 }
 /*Ende Bestellbestaetigung*/
 
+/* Produkte */
+
+.header-filter{
+   
+    display:flex;
+    margin-left:20%;
+    
+}
+
+/*Filter von Produkte*/
+.header-filter > #produkte{
+    
+    background-color:#F2F2F2;
+    border-style: solid;
+    border-width:1px;
+    width: 37.4%;
+    text-align: center;
+}
+
+#filtern >a{
+    text-decoration: none;
+    color:black
+}
+#produkte >a{
+    text-decoration: none;
+    color:black
+}
+
+/*Produkte*/
+.header-filter>#filtern{
+    background-color:#F2F2F2;
+    border-width:1px;
+    border-style: solid;
+    width: 37.4%;
+    text-align: center;
+}
+
+.produkt-filter{
+    display:flex;
+    margin-top:2%;
+
+}
+
+
+
+.produkt-filter > .preisSortieren{
+    border-style: solid;
+    margin-left:20%;
+}
+
+.produkt-filter > .anzahl{
+    border-style:solid;
+    margin-left:44.01%;  
+    text-align: right;
+  
+}
+
+
+
+.divFilter{
+    margin-top: 2%;
+    display:flex;
+}
+
+.preisSortieren{
+    border-style: solid;
+    margin-left:20%;    
+    width:350px;
+    background-color:white
+}
+
+.anzahl{
+    text-align: center;
+    box-sizing:border-box;
+    margin-left: 40%;
+    margin-right: 20%;
+    border-style: solid;
+    height: 50%;
+    padding: 10px;
+    background-color:white
+}
+
+.Produkt-Anordnung{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+    /**margin-left:400px;**/
+    background-color:#F2F2F2;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.Produkt-Anordnung > a > .produkt0{
+    border-style:solid;
+    border-width: 1px;
+    width: 300px;
+    height: 150px;
+    padding:20px;
+    margin:1px;
+
+}
+.Produkt-Anordnung > .produkt1{
+    border-style:solid;
+    border-width: 1px;
+    width: 300px;
+    height: 150px;
+    padding:20px;
+    margin:1px;
+}
+.Produkt-Anordnung > .produkt2{
+    border-style:solid;
+    border-width: 1px;
+    width: 300px;
+    height: 150px;
+    padding:20px;
+    margin:1px;
+}
+.Produkt-Anordnung > a >.produkt0 >img{
+    margin-left: 10px;
+    width:220px;
+    height: auto;
+}
+
+
+.Produkt-Anordnung> .produkt1 > img{
+    width:260px;
+    height: 70%;
+}
+
+.Produkt-Anordnung> .produkt1 > p{
+    margin-top: 40px;
+}
+
+.Produkt-Anordnung>.produkt2 > img{
+    width:220px;
+    height: auto;
+}
+
+.Produkt-Anordnung > a {
+    text-decoration: none;
+    color:black;
+
+}
+
+/*Produkt*/
+.artikelHeader{
+    margin-top: 30px;
+    border-style:solid;
+    border-width:1px;
+    width:100px;
+    position:relative;
+    left:20%;
+    text-align:center;
+    font-size: 20px;
+}
+
+.produktbild-kosten{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    justify-content:space-between;
+    
+}
+
+.produktbild >p{
+    margin-left:20px;
+}
+
+.produktbild-kosten>.produktbild>img{
+    width:320px;
+    height: auto;
+} 
+.produktbild-kosten> .produktbild{
+    height:400px;
+    margin-right: 15%;
+    border-style:solid;
+    border-width: 1px;
+    width:25%;
+    margin-left:20%;
+
+   
+
+}
+
+.produktbild-kosten > .kosten{
+    border-style:solid;
+    border-width: 1px;
+    width: 20%;
+    margin-right:20%
+}
+
+.produktinfo0{
+    border-style:solid;
+    margin-top:10px;
+    border-width: 1px;
+    padding-left: 20px;
+    padding-top:1%;
+    padding-left:3%;
+    margin-left:20%;
+    margin-right: 20%;
+}
+
+.produktinfo0 >ul{
+    padding-left:2em;
+}
+
+/* Ende Produkte */
+
 @media screen and (max-width: 1090px) {
     .content {
         width: 100%;
