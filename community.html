@@ -44,21 +44,33 @@
                 <div class="content_left">
                     <h3>Das sagen unsere Kunden:</h3>
                     <table>
-                        <tr><td>Hansi<br><em>WM 2500</em></td><td>Lieferung und Bestellung waren unkompliziert, die Geräte funktionieren einwandfrei.</td></tr>
-                        <tr><td>Felix Fischer<br><em>WM 1000</em></td><td>Ausgeliefertes Produkt war defekt aber habe direkt ein neues zugeschickt bekommen. Super Service!</td></tr>
-                        <tr><td>bettina<br><em>WM Super 22</em></td><td>Alles super. Gerne wieder !!!</td></tr>
-                        <tr><td>Anonym<br><em>WM 8000</em></td><td>Superschnelle und zuverlässige Abwicklung, Vielen Dank!</td></tr>
+                        <tr>
+							<td>Hansi<br><em>WM 2500</em></td>
+							<td>Lieferung und Bestellung waren unkompliziert, die Geräte funktionieren einwandfrei.</td>
+						</tr>
+                        <tr>
+							<td>Felix Fischer<br><em>WM 1000</em></td>
+							<td>Ausgeliefertes Produkt war defekt aber habe direkt ein neues zugeschickt bekommen. Super Service!</td>
+						</tr>
+                        <tr>
+							<td>bettina<br><em>WM Super 22</em></td>
+							<td>Alles super. Gerne wieder !!!</td>
+						</tr>
+                        <tr>
+							<td>Anonym<br><em>WM 8000</em></td>
+							<td>Superschnelle und zuverlässige Abwicklung, Vielen Dank!</td>
+						</tr>
                     </table>    
                 </div>
                 <div class="content_right">
                     <h3>Verfasse eine Rezension!</h3>
-                    <form action="rezension">
+                    <form action="" method="post">
                         <label for="name">Name:</label><br>
-                        <input type="text"><br><br>
+                        <input class="kommentar_input" type="text"><br><br>
                         <label for="bestellnr">Bestellnummer:</label><br>
-                        <input type="number" required><br><br>
+                        <input class="kommentar_input"type="number" required><br><br>
                         <label for="produkt">Produkt</label><br>
-                        <select name="produkte">
+                        <select class="kommentar_input" name="produkte">
                             <option value="0" selected>-</option>
                             <option value="1">WM 2500</option>
                             <option value="2">WM 2600</option>
@@ -72,10 +84,10 @@
                             <option value="10">WM 8000</option>
                           </select><br><br>
                         <label for="kommentar">Kommentar</label><br>
-                        <textarea rows="10"></textarea><br><br>
+                        <textarea  id="kommentarfeld" class="kommentar_input"></textarea><br><br>
                         <input type="checkbox">
                         <label for="checkbox">Ich habe die Datenschutzverordnung gelesen und bin einverstanden.</label><br><br>
-                        <input type="submit">
+                        <input class="kommentar_input" type="submit">
                     </form>
                 </div>
             </div>
