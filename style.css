@@ -140,13 +140,36 @@ main{
     
 }
 
+.titel{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: center; 
+    position: relative;
+}
+
+
+/* Titelbild */
+.titel img {
+    
+    width:100%;
+    height: auto;
+}
+
+.titel > p{
+    position:absolute;
+    color: white;
+    text-align: center;
+    font-size: 18pt;
+    width: 70%;
+    padding-bottom: 5%;
+}
+
+
 main > h3{
     display: block;
-    border-color: black;
-    border-left: 1px solid;
-    border-right: 1px solid;
-    padding-top: 10px;
-    padding-left: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
     font-weight: normal;
 }
 
@@ -156,21 +179,18 @@ main > h3{
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     border-color: black;
-    border-left: 1px solid;
-    border-right: 1px solid;
     border-bottom: 1px solid; 
     
 }
 
 
-.artikel{ /*einheitliche benennung nach produkt und artikel?*/
+.artikel{
     display:flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    
+    align-items: center;   
 }
 
 .artikel > img{
@@ -182,42 +202,36 @@ main > h3{
 .news{
     display: flex;
     flex-direction: column;
-    border-color: black;
-    border-left: 1px solid;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
-
 }
 
 .news > h4{
     font-size: 16pt;
-    padding-top: 10px;
-    padding-left: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 .news > h5{
     padding-top: 5px;
-    padding-left: 10px;
+    padding-left: 20px;
     padding-bottom: 20px; 
     font-weight: bold; 
 }
 
 .news > p{
-    padding-top: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 15px;
+    line-height: 26px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
 }
 
 span.bold{
     font-weight: bold;
 }
 
-span.mail{
-    color: cornflowerblue;
+.news > p > a{
     font-style: italic;
-    text-decoration: underline;
 }
+
 
 
 
@@ -481,3 +495,15 @@ span.img{
     padding: 20px 20px 20px 20px; 
 }
 /*Ende Bestellbestaetigung*/
+
+@media screen and (max-width: 1090px) {
+    .content {
+    width: 100%;
+    }
+    footer{
+    width: 100%;
+    }
+    .header{
+    width: 100%;
+    }
+    }
