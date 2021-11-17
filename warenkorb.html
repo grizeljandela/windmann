@@ -1,14 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <hmtl lang="de">
 
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content ="width=decive-width, intial-scale=1.0">
+		<meta charset="utf-8" />
 		<link rel="stylesheet" href="style.css"/>
 		<title>Windmann Laubbläser</title>
 	</head>
+	
 	<body>
-	<header>
+	
+		<header>
 			<div class="header">
 			
 				<div id="upper_header">
@@ -26,68 +27,96 @@
 					<li><a href="impressum.html">Impressum</a></li>
 					<li id="nav_highlighted"><a href = "warenkorb.html">Warenkorb</a></li>
 				</ul>
-			</nav>			
+			</nav>
+			
 			</div>
 		</header>
 		
 	<!-- Content -->	
 		<main class="content">
 		
-			<div class="titel">
+			<div class="titel_warenkorb">
 				<img src="images/warenkorb.jpg" alt="Warenkorb"/>
 				<h1>Warenkorb</h1>
 			</div>
-		<form action="" method="post">
+<div class="nebeneinander">
+	<div>
 	<div class="nebeneinander">
-		<div class="produkte_gesamt">
+	
 			<div class="produkt_anzeige">
-			
-			<div>
 				<img src="images/wm_2500.jpg" alt="Produkt1"/>
-				</div>
-					<div style="display:flex,flex-direction:column">
-					<p>Produkt: WM 2500</p>
 				
-					<br/>
-					<p>Preis: 250€</p>
-					
-					
-					<br/>
-					<br/>
-						<div class="produkt_buttons">
-						<button type="button">Menge:1 </button>
-						<br/>
-						<input type="reset" value="Entfernen">
+					<div class="produkt_text">
+						<div>
+							<p>Produkt: WM 2500</p>
+							<br/>
+							<p>Preis: 250€</p>
+							<br/>
+							<br/>
 						</div>
-					</div>		
+						
+						<div class="produkt_buttons">
+							<button class="produkt_input" type="button">Menge: 
+								<select class="mengen_angabe" name="Menge">
+									<option value="0" selected>1</option>
+									<option value="1">2</option>
+									<option value="2">3</option>
+									<option value="3">4</option>
+									<option value="4">5</option>
+									<option value="5">6</option>
+									<option value="6">7</option>
+									<option value="7">8</option>
+									<option value="8">9</option>
+									<option value="9">10</option>
+								</select>
+								<br/><br/>
+							</button>
+							<input class="produkt_input"type="reset" value="Entfernen"/>
+						</div>
+					</div>
 			</div>
+	</div>
+	<div class="nebeneinander">
 			<div class="produkt_anzeige">
 				<img src="images/wm_1000.jpg" alt="Produkt2"/>
-					<div style="display:flex,flex-direction:column">
+					<div class="produkt_text">
+						<div>
 						<p>Produkt: WM 1000</p>
-						
-			
 						<br/>
 						<p>Preis: 100€</p>
+						<br/>
+						<br/>
+						</div>
 						
-						<br/>
-						<br/>
-							<div class="produkt_buttons">
-							<button type="button">Menge: 1</button>
-							<br/>
-							<input type="reset" value="Entfernen">
-							</div>	
-					</div>	
+						<div class="produkt_buttons">
+							<button class="produkt_input" type="button">Menge:
+								<select class="mengen_angabe" name="Menge">
+									<option value="0" selected>1</option>
+									<option value="1">2</option>
+									<option value="2">3</option>
+									<option value="3">4</option>
+									<option value="4">5</option>
+									<option value="5">6</option>
+									<option value="6">7</option>
+									<option value="7">8</option>
+									<option value="8">9</option>
+									<option value="9">10</option>
+								</select>
+								<br/><br/>
+							</button>
+							<input class="produkt_input" type="reset" value="Entfernen"/>
+						</div>	
+					</div>
 			</div>
-		</div>
+	</div>		
+	</div>
 			<div class="produkt_summe">
-				<br>
+				<br />
 				<p>Summe (2 Artikel):</p>
 				<p>350€</p>
-				<span class="bezahlen_button"><input type="submit" value="Bezahlen" ></span>	
+				<input class="produkt_input" type="submit" value="Bezahlen" />
 			</div>
-		</div>
-		</form>
+</div>	
 		</main>
 		
 		<!-- Fusszeile -->

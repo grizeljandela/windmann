@@ -400,14 +400,13 @@ list-style: none;
 /* Ende Impressum */
 
 /*Style Warenkorb*/
-.titel img {
-       width:100%;
+.titel_warenkorb img {
+    width:100%;
 }
-
-.titel {
+.titel_warenkorb {
     background-color: #FEE193;
 }
-.titel h1 {
+.titel_warenkorb h1 {
    padding: 15px;
     font-size: 16pt;
     text-align: center;
@@ -418,53 +417,60 @@ list-style: none;
     flex-direction:row;
 }
 .produkt_anzeige{
+    width:450px;
     display:flex;
     flex-direction: row;
     align-items: flex-start;
     border-color: black;
-	border-top: 1px solid;
-    border-left: 1px solid;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
-    
-}
-.produkt_anzeige{ /*einheitliche benennung nach produkt und artikel?*/
+	border:1px solid;
     margin-bottom:20px;
     margin-top:20px;
     margin-right:20px;
     margin-left:20px;
 }
- 
-
-
 .produkt_buttons{
-	 display:flex;
+	display:flex;
     flex-direction:row;
+    justify-content:space-between;
+    align-items:flex-end; 
 }
-
+.produkt_input{
+    width:auto;
+    height:25px;
+    margin-right:25px;
+    display:flex;
+}
+.produkt_text{
+    display:flex;
+    flex-direction:column;
+	margin-top:20px;
+    margin-left:10px;
+    margin-right:10px;
+}
 .produkt_anzeige img{
+    width:255px;
+    height:150px;
     border: 1px solid;
-    border-color: black;
-    
+    border-color: black;  
 }
 .produkt_summe{
     display:flex;
     flex-direction: column;
-    align-items: flex-end;
-    padding-right:19px;
+    align-items:flex-start;
+    padding-top:30px;
+    padding-left:10%;
 }
 
 /*Ende Warenkorb*/
 
 /*Style Versandadresse*/
-.titel img {
+.titel_versandadresse img {
     width:100%;
 }
-
-.titel {
+.titel_versandadresse {
     background-color: #FEE193;
 }
-.titel h1 {
+.titel_versandadresse h1 {
    padding: 15px;
     font-size: 16pt;
     text-align: center;
@@ -474,26 +480,28 @@ list-style: none;
     padding:20px 20px 20px 20px;
 }
 .label_versand{
-    width:200px;
+    width:110px;
     display: inline-flex;
 }
+.all_inclusiv h3{
+    line-height:3em;
+}
 .versand_input{
-    width:300px;
-    height:30px;
+    width:500px;
+    height:40px;
 }
 .buttons_versand{
-    margin-left:10px;
+    margin-left:20px;
+    margin-right:110px;
 	display:flex;
     flex-direction:row;
+    justify-content:space-between;
 }
-.buttons p{
-    font-weight:bold;
-    font-size:12pt;
-}
+
 /*EndeVersandadresse*/
 
 /*Style Bestellbestaetigung*/
-span.img{
+span img{
 	width:100%;
 }
 .bestaetigungs_text{
@@ -501,7 +509,7 @@ span.img{
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    padding: 20px 20px 20px 20px; 
+    padding: 80px 20px 100px 40px; 
 }
 /*Ende Bestellbestaetigung*/
 
