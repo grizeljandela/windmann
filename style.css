@@ -67,8 +67,6 @@
     background: #FEE193;
     }
     
-    #nav_highlighted{
-    }
     
     /* Hinter Warenkorb keine Abtrennung mehr */
     nav ul li:last-child{
@@ -130,6 +128,10 @@ footer {
 .footer_element > p {
     font-weight: normal;
     font-size: 11pt;
+}
+
+.footer_element a {
+    color: black;
 }
 
 /*Homepage*/
@@ -236,15 +238,15 @@ span.bold{
 /* Service */
 
 /* Titel und Titelbild */
-.titel img {
+.titel_service img {
     width:100%;
 }
 
-.titel {
+.titel_service {
     background-color: #FEE193;
 }
 
-.titel h1 {
+.titel_service h1 {
     padding: 15px;
     font-size: 40px;
     text-align: center;
@@ -424,7 +426,7 @@ list-style: none;
     margin-left:20px;
 }
  
-}
+
 
 .produkt_buttons{
 	 display:flex;
@@ -496,12 +498,14 @@ span.img{
 
 @media screen and (max-width: 1090px) {
     .content {
-    width: 100%;
+        width: 100%;
     }
-    footer{
-    width: 100%;
+    
+    footer {
+        width: 100%;
     }
-    .header{
-    width: 100%;
+    
+    .header {
+        width: 100%;
     }
-    }
+}
