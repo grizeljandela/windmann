@@ -133,14 +133,13 @@ footer {
 }
 
 /*Homepage*/
-
 main{
     display: flex;
     flex-direction: column;
     
 }
 
-.titel{
+.titel_index{
     display: flex;
     flex-direction: column;
     justify-content:flex-end;
@@ -150,13 +149,12 @@ main{
 
 
 /* Titelbild */
-.titel img {
-    
+.titel_index > img {
     width:100%;
     height: auto;
 }
 
-.titel > p{
+.titel_index > p{
     position:absolute;
     color: white;
     text-align: center;
@@ -166,7 +164,7 @@ main{
 }
 
 
-main > h3{
+#ueberschrift_format{
     display: block;
     padding-top: 20px;
     padding-left: 20px;
@@ -230,7 +228,7 @@ span.bold{
 
 .news > p > a{
     font-style: italic;
-}
+}/*Homepage_Ende*/
 
 
 
@@ -364,7 +362,7 @@ main h1{
 }
 main h3{
     padding: 20px 0;
-}  
+} 
 .content{
     font-size: 13pt;
 }
