@@ -1,0 +1,133 @@
+<!doctype html>
+<hmtl lang="de">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content ="width=decive-width, intial-scale=1.0">
+		<link rel="stylesheet" href="style.css"/>
+		<title>Windmann Laubbläser</title>
+	</head>
+	<body>
+	<header>
+			<div class="header">
+			
+				<div id="upper_header">
+				<img  src="images/logo.png" width="100px" height="100px" alt="Logo von Windmann"/>
+				<h1>WINDMANN</h1>
+				<h2>Wissen, woher der Wind weht</h2>
+				</div>
+			
+			<nav>
+				<ul>
+					<li><a href = "#">Home</a></li>
+					<li><a href = "#">Produkte</a></li>
+					<li><a href = "#">Service</a></li>
+					<li><a href = "#">Community</a></li>
+					<li><a href = "#">Impressum</a></li>
+					<li id="nav_highlighted"><a href = "warenkorb.html">Warenkorb</a></li>
+				</ul>
+			</nav>			
+			</div>
+		</header>
+		
+	<!-- Content -->	
+		<main class="content">
+			<div class="titel">
+				<img src="images/versandadresse.jpg" alt="Versandadresse"/>
+				<h1>Versandadresse</h1>
+			</div>
+		
+		<form action="datenbank.php" method="post" />
+		<div class="all_inclusiv">
+			<label class="label_versand" for="Name"> Name:</label>
+			<input class ="versand_input" type="text" id="Name" name="Name" placeholder="Eingabe des Nachnamens"required>
+		<br>
+		<br>
+			<label class="label_versand" for="Vorname"> Vorname:</label>
+			<input class ="versand_input" type="text" id="Vorname" name="Vorname" placeholder="Eingabe des Vornamens"required>
+		<br>
+		<br>
+		<label class="label_versand" for="Straße"> Straße:</label>
+			<input class ="versand_input" type="text" id="Straße" name="Straße" placeholder="Eingabe der Straße"required>
+		<br>
+		<br>
+			<label class="label_versand" for="Hausnummer"> Hausnummer:</label>
+			<input class ="versand_input" type="number" id="Name" name="Hausnummer" placeholder="Eingabe der Hausnummer"required>
+		<br>
+		<br>
+			<label class="label_versand" for="Adresszusatz"> Adresszusatz:</label>
+			<input class ="versand_input" type="text" id="Adresszusatz" name="Adresszusatz" placeholder="Eingabe zusätzlicher Angaben zum Wohnort">
+		<br>
+		<br>
+			<label class="label_versand" for="PLZ"> PLZ:</label>
+			<input class ="versand_input" type="number" id="PLZ" name="PLZ" placeholder="Eingabe der Postleitzahl"required>
+		<br>
+		<br>
+			<label class="label_versand" for="Wohnort"> Wohnort:</label>
+			<input class ="versand_input" type="text" id="Wohnort" name="Wohnort" placeholder="Eingabe des Wohnortes"required>
+		<br>
+		<br>
+			<label class="label_versand" for="E-MAil-Adresse"> E-Mail:</label>
+			<input class ="versand_input" type="email" id="E-MAil-Adresse" name="E-MAil-Adresse" placeholder="Eingabe der Email-Adresse"required>
+		<br>
+		<br>
+			<label class="label_versand" for="Telefonnumer"> Tel.Nummer:</label>
+			<input class ="versand_input" type="number" id="Telefonnumer" name="Telefonnumer" placeholder="Eingabe der Telefonnummer"required>
+		<br>
+		<br>
+		<h3>Zahlungsart</h3>
+		<h4>Lastschriftmandat</h4>
+		<br>
+			<div class="konto">
+					<label class="label_versand" for="Kontoinhaber"> Kontoinhaber:</label>
+					<input class ="versand_input" type="text" id="Kontoinhaber" name="Kontoinhaber" placeholder="Eingabe des Kontoinhabers"required>
+				<br>
+				<br>
+					<label class="label_versand" for="BIC"> BIC:</label>
+					<input class ="versand_input" type="text" id="BIC" name="BIC" placeholder="Eingabe der BIC"required>
+				<br>
+				<br>
+				<label class="label_versand" for="IBAN"> IBAN:</label>
+					<input class ="versand_input" type="text" id="IBAN" name="IBAN" placeholder="Eingabe der IBAN"required>
+				<br>
+				<br>
+					<input type="checkbox" id="AGBs" name="AGBs" required>
+					<label for="AGBs"> Ich akzeptiere die genannten Datenschutzbedingungen</label>
+					
+				<br>
+				<br>
+			</div>
+			<div class="buttons_versand">
+			<input class ="versand_input" type="submit" value="Bestätigen">
+			<input class ="versand_input" type="reset" value="Angaben löschen">
+			</div>
+		</div>
+	</main>
+		
+		<!-- Fusszeile -->
+		<footer>
+			<div class="footer_element">
+				<h5>Impressum</h5>
+			</div>
+
+			<div class="footer_element">
+				<h5>Kontakt</h5>
+				<h6>service@laubblaeser.de</h6>
+				<p>Öffnungszeiten:</p>
+				<p>Mo-Fr</p>
+				<p>10-16 Uhr</p>
+			</div>
+
+			<div class="footer_element">
+				<h5>Telefon/Fax</h5>
+				<h6>Tel: 0800 912345</h6>
+				<p>Fax: 0800 912346</p>
+			</div>
+			
+			<div class="footer_element">
+				<h5>Hilfe</h5>
+				<h6>Kundenservice</h6>
+			</div>
+		</footer>
+	</body>
+</html>
