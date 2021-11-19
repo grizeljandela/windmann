@@ -1,3 +1,6 @@
+
+    
+
 /* Allgemein */
 
 *{
@@ -9,13 +12,13 @@
     /* Header alles */
     
     .header{
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
     background: #FB9A63;
     }
     
     .content{
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
     background: #F2F2F2;
     font-size: 13pt;
@@ -33,8 +36,8 @@
     
     #upper_header img{
     position: absolute;
-    top: 18px; /* Position Logo 36/2 mittig*/
-    left: 20px;
+    top: 18px;
+    right: 20px;
     width: 130px;
     height: 130px;
     }
@@ -99,7 +102,7 @@
 
 footer {
     display: flex;
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
     background-color: #FEE193;
     justify-content: space-around;
@@ -721,17 +724,5 @@ span img{
 }
 
 /* Ende Produkte */
-@media screen and (max-width: 1090px) {
-    .content {
-    width: 100%;
-    }
-    
-    footer {
-    width: 100%;
-    }
-    
-    .header {
-    width: 100%;
-    }
-    }
+
 
