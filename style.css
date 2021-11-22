@@ -53,6 +53,11 @@
     
     /* Menue */
     
+    /* Hamburger */
+    .hamburger {
+        display: none;
+    }
+
     nav ul{
     display: flex; /* nebeneinander */
     list-style: none; /* Keine Aufzaehlungszeichen */
