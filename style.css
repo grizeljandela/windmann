@@ -162,13 +162,22 @@ main{
     height: auto;
 }
 
-.titel_index > p{
-    position:absolute;
+.titel_index .titel_kasten{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(251, 154, 99, 0.6);
+    width: 70%;
+    margin-bottom: 5%;
+}
+
+.titel_index .titel_kasten > p{
     color: white;
     text-align: center;
     font-size: 18pt;
     width: 70%;
-    padding-bottom: 5%;
 }
 
 

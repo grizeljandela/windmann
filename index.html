@@ -4,8 +4,9 @@
 
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="style.css" media="screen and (min-width: 701px )" />
-		<link rel="stylesheet" href="style_mobil.css" media="screen and (max-width: 700px )"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="style_mobil.css"/>
 		<title>Windmann Laubbläser</title>
 	</head>
 
@@ -13,6 +14,14 @@
 
 		<header>
 			<div class="header">
+
+				<div class="hamburger_wrapper">
+					<div class="hamburger">
+						<hr id="hr-1">
+						<hr id="hr-2">
+						<hr id="hr-3">
+					</div>
+				</div>
 
 				<div id="upper_header">
 					<img src="images/logo.png" width="100px" height="100px" alt="Logo von Windmann" />
@@ -39,7 +48,9 @@
 			<!--Titelbild-->
 		<div class = "titel_index">
 			<img src= "images/home_titelbild.png" alt = "Home Titelbild" />
-			<p>Willkommen auf der Windmann Seite, hier helfen wir Ihnen, Ihren perfekten Laubbläser zu finden!</p>
+			<div class="titel_kasten">
+				<p>Willkommen auf der Windmann Seite, hier helfen wir Ihnen, Ihren perfekten Laubbläser zu finden!</p>
+			</div>
 		</div>
 		
 			<h3 id="ueberschrift_format">Unsere Empfehlungen für Sie:</h3>
@@ -54,12 +65,12 @@
 				</div>
 				<!--Ende: artikel-->
 
-				<div class="artikel">
+				<div class="artikel" id="produkt_desktop">
 					<img src="images/wm_super_300.png"  alt="Laubbläsermodell WM Super 300" />
 					<p>WM Super 300</p>
 				</div>
 
-				<div class="artikel">
+				<div class="artikel" id="produkt_desktop">
 					<img src="images/wm_50_lite.png"  alt="Laubbläsermodell WM 50 Lite" />
 					<p>WM 50 Lite</p>
 				</div>
@@ -116,6 +127,7 @@
 			</div>
 		</footer>
 
+	<script src="app.js"></script>
 	</body>
 
 	</html>

@@ -29,13 +29,16 @@
 
     nav {
         position: fixed; /* um beim Scrollen an der gleichen Stelle zu bleiben */
-        width: 70%; /* 70% von Bildschirm wenn geöffnet */
+        width: 50%; /* 70% von Bildschirm wenn geöffnet */
         top: 0;
-        left: -70%; /* um nach links "versteckt" zu sein wenn wir in der mobile-Version springen */
+        padding-top: 30px;
+        left: -50%; /* um nach links "versteckt" zu sein wenn wir in der mobile-Version springen */
         height: 100%;
         background-color: var(--yellow);
         transition: .5s; /* transition ist verlangsamt um ein "Animation-Gefühl" zu bekommen beim Öffnen-Verschließen von Navigation */
+        z-index: 10;
     }
+    
 
     nav ul {
         height: 100%;
@@ -52,7 +55,7 @@
         position: absolute;
         background-color: var(--yellow);
         width: 70px;
-        z-index: 1; /* https://css-tricks.com/almanac/properties/z/z-index/ */
+        z-index: 14; /* https://css-tricks.com/almanac/properties/z/z-index/ */
         height: 100px;
         display: flex;
         justify-content: center;
@@ -75,7 +78,6 @@
         width: 100%; /* Länge der Str*/
         border: none; /* Strichen haben bei Default border und outline, die wir nicht haben möchten */
         outline: none;
-        transition: .5s; /* transition ist verlangsamt um ein "Animation-Gefühl" zu bekommen beim Öffnen-Verschließen von Hamburger */
         position: absolute;
     }
 
@@ -88,8 +90,10 @@
     }
 
     .hr-active {
-        position: absolute;
-        top: 20px !important; /* important überschreibt alle andere top-Befehle, die höher Priorität haben */
+        position: fixed !important;
+        margin-top: 20px;
+        width: 50px !important;
+        top: 20px !important;
     }
 
     .hr1-active {
@@ -102,6 +106,7 @@
     
     .nav-active { /* Navigation springt von -70% auf 0 um gezeiget (geöffnet) zu werden */
         left: 0;
+        
     }
     
     .hr2-active { /* Mttlere Strich verschwindet weil sie nicht mehr für "X" benötigt ist */
@@ -120,6 +125,15 @@
         padding-top: 30px;
     }
 
+    /*Home Seite*/
+    .titel_index .titel_kasten > p {
+       font-size: 13pt;
+       width: 80%; 
+    }
+
+    #produkt_desktop{
+        display: none;
+    }
 
     /* Service Seite */
     .titel_service h1 {
