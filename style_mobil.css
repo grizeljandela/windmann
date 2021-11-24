@@ -1,17 +1,16 @@
 :root{
-    --orange: #FB9A63; /* Variablen für Farben */
+    --orange: #FB9A63;
     --yellow: #FEE193;
 }
-@media screen and (max-width: 1302px) {
+@media screen and (max-width: 700px) {
 
-    /* Header */
     #upper_header {
-        height: 100px; /* ist nicht mehr 166px wie bei Desktop VErsion, jetzt ist es kleiner */
+        height: 100px; 
     }
 
     #upper_header img {
         top: 10px;
-        left: unset; /* es hat schon in Desktop-Version Abstand von linke Kante, die es verhindern würde das jetzt in Mobile-Version auf die rechte Kante zu orientieren, deswegen müssen wir es löschen (unset) */
+        left: unset; 
         right: 20px;
         height: 80px;
         width: 80px;
@@ -27,14 +26,14 @@
     }
 
     nav {
-        position: fixed; /* um beim Scrollen an der gleichen Stelle zu bleiben */
-        width: 50%; /* 70% von Bildschirm wenn geöffnet */
+        position: fixed; 
+        width: 50%; 
         top: 0;
         padding-top: 30px;
-        left: -50%; /* um nach links "versteckt" zu sein wenn wir in der mobile-Version springen */
+        left: -50%; 
         height: 100%;
         background-color: var(--yellow);
-        transition: .5s; /* transition ist verlangsamt um ein "Animation-Gefühl" zu bekommen beim Öffnen-Verschließen von Navigation */
+        transition: .5s; 
         z-index: 10;
     }
     
@@ -49,19 +48,17 @@
         padding: 30px 10px;
     }
 
-    /* Hamburger gelber Rahmen */
     .hamburger_wrapper {
         position: absolute;
         background-color: var(--yellow);
         width: 70px;
-        z-index: 14; /* https://css-tricks.com/almanac/properties/z/z-index/ */
+        z-index: 14; 
         height: 100px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    /* Hamburger: 3 Strichen */
     .hamburger {
         width: 50px;
         height: 50px;
@@ -74,8 +71,8 @@
     .hamburger hr {
         height: 6px;
         background-color: var(--orange);
-        width: 100%; /* Länge der Str*/
-        border: none; /* Strichen haben bei Default border und outline, die wir nicht haben möchten */
+        width: 100%; 
+        border: none; 
         outline: none;
         position: absolute;
     }
@@ -96,35 +93,32 @@
     }
 
     .hr1-active {
-        transform: rotate(45deg); /* um ein Teil von X zu formen */
+        transform: rotate(45deg); 
     }
 
     .hr3-active {
-        transform: rotate(-45deg); /* um anderen Teil von X zu formen */
+        transform: rotate(-45deg); 
     }
     
-    .nav-active { /* Navigation springt von -70% auf 0 um gezeiget (geöffnet) zu werden */
+    .nav-active { 
         left: 0;
         
     }
     
-    .hr2-active { /* Mttlere Strich verschwindet weil sie nicht mehr für "X" benötigt ist */
+    .hr2-active { 
         opacity: 0;
     }
 
-
-    /* Footer */
     footer {
-        flex-direction: column; /* nicht mehr nebeneinander wie im Desktop-VErsion, sondern as column untereinander */
+        flex-direction: column; 
         padding-left: 30px;
-        box-sizing: border-box /* Padding und Borders in die Gesamtbreite und -höhe eines Elements einbeziehen */
+        box-sizing: border-box 
     }
 
-    footer .footer_element { /* Abstand zwischen Footer-Elemente */
+    footer .footer_element { 
         padding-top: 30px;
     }
 
-    /*Home Seite*/
     .titel_index .titel_kasten > p {
        font-size: 13pt;
        width: 80%; 
@@ -134,7 +128,6 @@
         display: none;
     }
 
-    /* Service Seite */
     .titel_service h1 {
         font-size: 22pt;
     }
@@ -160,7 +153,6 @@
         margin: 20px 0px 0px 0px;
     }
 
-    /*Community-Seite*/
     .content_left{
         width: 100%;
     }
@@ -169,7 +161,6 @@
         width: 70%;
     }
 
-    /**Produktdetailsseite **/
     .produktbild-kosten{
         display:inline;
     }
@@ -187,19 +178,68 @@
         width:485px;
     }
 
-    /**Ende Produktdetailsseite-Mobile **/
+	.nebeneinander{
+        display:flex;
+        flex-direction:column;
+    }  
+	.produkt_input{
+        width:65px;
+        height:27px;
+        display:flex;
+        background-color: white;
+    }
+	.mengen_angabe{
+        height: 25px;
+        margin-right: 17px;
+        background-color: white;
+    }
+	.produkt_summe{
+        display:flex;
+        flex-direction: column;
+        align-items:flex-start;
+        padding-top:20px;
+        padding-bottom: 20px;
+		line-height:35px;
+    }
+	.produkt_summe p{
+     font-weight: normal;
+     font-size: 11pt;
+    }
+    .nebeneinander h3{
+        font-size:13pt;
+    }
+
+	.buttons_versand{
+    margin-left:20px;
+    margin-right:20px;
+	display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+	}
+	.versand_input{
+        background-color: white;
+    }
+	.all_inclusiv h2{
+    line-height:3em;
+	}
+    .all_inclusiv h3{
+    line-height:1em;
+	}
+
+    .bestaetigungs_text h3{
+    line-height:4em;
+	}
 }
 
 @media screen and (max-width: 700px) {
 
-    /* Header */
     #upper_header {
-        height: 100px; /* ist nicht mehr 166px wie bei Desktop VErsion, jetzt ist es kleiner */
+        height: 100px; 
     }
 
     #upper_header img {
         top: 10px;
-        left: unset; /* es hat schon in Desktop-Version Abstand von linke Kante, die es verhindern würde das jetzt in Mobile-Version auf die rechte Kante zu orientieren, deswegen müssen wir es löschen (unset) */
+        left: unset; 
         right: 20px;
         height: 80px;
         width: 80px;
@@ -215,18 +255,17 @@
     }
 
     nav {
-        position: fixed; /* um beim Scrollen an der gleichen Stelle zu bleiben */
-        width: 50%; /* 70% von Bildschirm wenn geöffnet */
+        position: fixed; 
+        width: 50%; 
         top: 0;
         padding-top: 30px;
-        left: -50%; /* um nach links "versteckt" zu sein wenn wir in der mobile-Version springen */
+        left: -50%; 
         height: 100%;
         background-color: var(--yellow);
-        transition: .5s; /* transition ist verlangsamt um ein "Animation-Gefühl" zu bekommen beim Öffnen-Verschließen von Navigation */
+        transition: .5s; 
         z-index: 10;
     }
     
-
     nav ul {
         height: 100%;
         flex-direction: column;
@@ -237,19 +276,17 @@
         padding: 30px 10px;
     }
 
-    /* Hamburger gelber Rahmen */
     .hamburger_wrapper {
         position: absolute;
         background-color: var(--yellow);
         width: 70px;
-        z-index: 14; /* https://css-tricks.com/almanac/properties/z/z-index/ */
+        z-index: 14;
         height: 100px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    /* Hamburger: 3 Strichen */
     .hamburger {
         width: 50px;
         height: 50px;
@@ -262,8 +299,8 @@
     .hamburger hr {
         height: 6px;
         background-color: var(--orange);
-        width: 100%; /* Länge der Str*/
-        border: none; /* Strichen haben bei Default border und outline, die wir nicht haben möchten */
+        width: 100%; 
+        border: none; 
         outline: none;
         position: absolute;
     }
@@ -284,35 +321,32 @@
     }
 
     .hr1-active {
-        transform: rotate(45deg); /* um ein Teil von X zu formen */
+        transform: rotate(45deg); 
     }
 
     .hr3-active {
-        transform: rotate(-45deg); /* um anderen Teil von X zu formen */
+        transform: rotate(-45deg); 
     }
     
-    .nav-active { /* Navigation springt von -70% auf 0 um gezeiget (geöffnet) zu werden */
+    .nav-active { 
         left: 0;
         
     }
     
-    .hr2-active { /* Mttlere Strich verschwindet weil sie nicht mehr für "X" benötigt ist */
+    .hr2-active { 
         opacity: 0;
     }
 
-
-    /* Footer */
     footer {
-        flex-direction: column; /* nicht mehr nebeneinander wie im Desktop-VErsion, sondern as column untereinander */
+        flex-direction: column; 
         padding-left: 30px;
-        box-sizing: border-box /* Padding und Borders in die Gesamtbreite und -höhe eines Elements einbeziehen */
+        box-sizing: border-box 
     }
 
-    footer .footer_element { /* Abstand zwischen Footer-Elemente */
+    footer .footer_element { 
         padding-top: 30px;
     }
 
-    /*Home Seite*/
     .titel_index .titel_kasten > p {
        font-size: 13pt;
        width: 80%; 
@@ -322,7 +356,6 @@
         display: none;
     }
 
-    /* Service Seite */
     .titel_service h1 {
         font-size: 22pt;
     }
@@ -348,7 +381,6 @@
         margin: 20px 0px 0px 0px;
     }
 
-    /*Community-Seite*/
     .content_left{
         width: 100%;
     }
@@ -357,7 +389,6 @@
         width: 70%;
     }
 }
-
 
 @media screen and (max-width: 500px) {
 

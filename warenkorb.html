@@ -3,21 +3,29 @@
 
 	<head>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link rel="stylesheet" href="style.css"/>
+		<link rel="stylesheet" href="style_mobil.css"/>
 		<title>Windmann Laubbläser</title>
 	</head>
 
 	<body>
-
-		<header>
+	<header>
 			<div class="header">
 
-				<div id="upper_header">
-				<img  src="images/logo.png" width="100px" height="100px" alt="Logo von Windmann"/>
-				<h1>WINDMANN</h1>
-				<h2>Wissen, woher der Wind weht</h2>
+				<div class="hamburger_wrapper">
+					<div class="hamburger">
+						<hr id="hr-1">
+						<hr id="hr-2">
+						<hr id="hr-3">
+					</div>
 				</div>
 
+				<div id="upper_header">
+					<img src="images/logo.png" width="100px" height="100px" alt="Logo von Windmann"/>
+					<h1>WINDMANN</h1>
+					<h2>Wissen, woher der Wind weht</h2>
+				</div>
 			<nav>
 				<ul>
 					<li><a href = "index.html">Home</a></li>
@@ -48,15 +56,15 @@
 
 					<div class="produkt_text">
 						<div>
-							<p>Produkt: WM 2500</p>
+							<p>Produkt: WM 1000</p>
 							<br/>
-							<p>Preis: 250€</p>
+							<p>Preis: 100€</p>
 							<br/>
 							<br/>
 						</div>
 
 						<div class="produkt_buttons">
-							<button class="produkt_input" type="button">Menge:
+							<p> Menge:</p>
 								<select class="mengen_angabe" name="Menge">
 									<option value="0" selected>1</option>
 									<option value="1">2</option>
@@ -89,7 +97,7 @@
 						</div>
 
 						<div class="produkt_buttons">
-							<button class="produkt_input" type="button">Menge:
+							<p> Menge:</p>
 								<select class="mengen_angabe" name="Menge">
 									<option value="0" selected>1</option>
 									<option value="1">2</option>
@@ -112,8 +120,11 @@
 	</div>
 			<div class="produkt_summe">
 				<br />
-				<p>Summe (2 Artikel):</p>
-				<p>350€</p>
+				<h3>Summe (2 Artikel):<h3>
+				<p>Produktpreis: 350€</p>
+				<P>Versandkosten: 19,95€</p>
+				<p>Mwst.:66,50€</p>
+				<h3>Insgesamt: 436,45€</h3>
 				<input class="produkt_input" type="submit" value="Bezahlen" />
 			</div>
 </div>
