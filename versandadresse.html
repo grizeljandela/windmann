@@ -5,17 +5,18 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="style.css"/>
 		<title>Windmann Laubbläser</title>
+		<script src="./validate.js"></script>
 	</head>
 	<body>
 		<header>
 			<div class="header">
-			
+
 				<div id="upper_header">
 				<img  src="images/logo.png" width="100px" height="100px" alt="Logo von Windmann"/>
 				<h1>WINDMANN</h1>
 				<h2>Wissen, woher der Wind weht</h2>
 				</div>
-			
+
 			<nav>
 				<ul>
 					<li><a href = "index.html">Home</a></li>
@@ -25,18 +26,18 @@
 					<li><a href = "impressum.html">Impressum</a></li>
 					<li id="nav_highlighted"><a href = "warenkorb.html">Warenkorb</a></li>
 				</ul>
-			</nav>			
+			</nav>
 			</div>
 		</header>
-		
-	<!-- Content -->	
+
+	<!-- Content -->
 		<main class="content">
 			<div class="titel_versandadresse">
 				<img src="images/versandadresse.jpg" alt="Versandadresse"/>
 				<h1>Versandadresse</h1>
 			</div>
-		
-			<form action="datenbank.php" method="post" />
+
+			<form id="formular" action="datenbank.php" method="post" onSubmit="return pruefeEingabe()" />
 		<div class="all_inclusiv">
 				<label class="label_versand" for="Name"> Name:</label>
 				<input class ="versand_input" type="text" id="Name" name="Name" placeholder=" Eingabe des Nachnamens"required/>
@@ -51,7 +52,7 @@
 			<br/>
 			<br/>
 				<label class="label_versand" for="Hausnummer"> Hausnummer:</label>
-				<input class ="versand_input" type="number" id="Name" name="Hausnummer" placeholder=" Eingabe der Hausnummer"required/>
+				<input class ="versand_input" type="number" id="Hausnummer" name="Hausnummer" placeholder=" Eingabe der Hausnummer"required/>
 			<br/>
 			<br/>
 				<label class="label_versand" for="Adresszusatz"> Adresszusatz:</label>
@@ -92,7 +93,7 @@
 					<br/>
 						<input type="checkbox" id="AGBs" name="AGBs" required/>
 						<label for="AGBs"> Ich akzeptiere die genannten Datenschutzbedingungen</label>
-						
+
 					<br/>
 					<br/>
 				</div>
@@ -103,12 +104,13 @@
 		</div>
 		</form>
 	</main>
-		
+
 		<!-- Fusszeile -->
 		<footer>
 			<div class="footer_element">
-				<h5>Impressum</h5>
-				<p><a href="impressum.html">Datenschutz</a></p>
+				<h5>Windmann-Seite</h5>
+				<p><a href="impressum.html">Impressum</a></p>
+				<p><a href="datenschutz.html">Datenschutz</a></p>
 			</div>
 
 			<div class="footer_element">
