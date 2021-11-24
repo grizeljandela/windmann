@@ -2,6 +2,193 @@
     --orange: #FB9A63; /* Variablen für Farben */
     --yellow: #FEE193;
 }
+@media screen and (max-width: 1302px) {
+
+    /* Header */
+    #upper_header {
+        height: 100px; /* ist nicht mehr 166px wie bei Desktop VErsion, jetzt ist es kleiner */
+    }
+
+    #upper_header img {
+        top: 10px;
+        left: unset; /* es hat schon in Desktop-Version Abstand von linke Kante, die es verhindern würde das jetzt in Mobile-Version auf die rechte Kante zu orientieren, deswegen müssen wir es löschen (unset) */
+        right: 20px;
+        height: 80px;
+        width: 80px;
+    }
+
+    #upper_header h1 {
+        font-size: 32pt;
+        padding-top: 12px;
+    }
+
+    #upper_header h2 {
+        font-size: 15pt;
+    }
+
+    nav {
+        position: fixed; /* um beim Scrollen an der gleichen Stelle zu bleiben */
+        width: 50%; /* 70% von Bildschirm wenn geöffnet */
+        top: 0;
+        padding-top: 30px;
+        left: -50%; /* um nach links "versteckt" zu sein wenn wir in der mobile-Version springen */
+        height: 100%;
+        background-color: var(--yellow);
+        transition: .5s; /* transition ist verlangsamt um ein "Animation-Gefühl" zu bekommen beim Öffnen-Verschließen von Navigation */
+        z-index: 10;
+    }
+    
+
+    nav ul {
+        height: 100%;
+        flex-direction: column;
+        padding-top: 70px;
+    }
+
+    nav ul li a {
+        padding: 30px 10px;
+    }
+
+    /* Hamburger gelber Rahmen */
+    .hamburger_wrapper {
+        position: absolute;
+        background-color: var(--yellow);
+        width: 70px;
+        z-index: 14; /* https://css-tricks.com/almanac/properties/z/z-index/ */
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Hamburger: 3 Strichen */
+    .hamburger {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .hamburger hr {
+        height: 6px;
+        background-color: var(--orange);
+        width: 100%; /* Länge der Str*/
+        border: none; /* Strichen haben bei Default border und outline, die wir nicht haben möchten */
+        outline: none;
+        position: absolute;
+    }
+
+    #hr-2 {
+        top: 20px;
+    }
+
+    #hr-3 {
+        top: 40px;
+    }
+
+    .hr-active {
+        position: fixed !important;
+        margin-top: 20px;
+        width: 50px !important;
+        top: 20px !important;
+    }
+
+    .hr1-active {
+        transform: rotate(45deg); /* um ein Teil von X zu formen */
+    }
+
+    .hr3-active {
+        transform: rotate(-45deg); /* um anderen Teil von X zu formen */
+    }
+    
+    .nav-active { /* Navigation springt von -70% auf 0 um gezeiget (geöffnet) zu werden */
+        left: 0;
+        
+    }
+    
+    .hr2-active { /* Mttlere Strich verschwindet weil sie nicht mehr für "X" benötigt ist */
+        opacity: 0;
+    }
+
+
+    /* Footer */
+    footer {
+        flex-direction: column; /* nicht mehr nebeneinander wie im Desktop-VErsion, sondern as column untereinander */
+        padding-left: 30px;
+        box-sizing: border-box /* Padding und Borders in die Gesamtbreite und -höhe eines Elements einbeziehen */
+    }
+
+    footer .footer_element { /* Abstand zwischen Footer-Elemente */
+        padding-top: 30px;
+    }
+
+    /*Home Seite*/
+    .titel_index .titel_kasten > p {
+       font-size: 13pt;
+       width: 80%; 
+    }
+
+    #produkt_desktop{
+        display: none;
+    }
+
+    /* Service Seite */
+    .titel_service h1 {
+        font-size: 22pt;
+    }
+
+    .titel_service img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .abschnitt {
+        flex-direction: column;
+    }
+
+    .abschnitt_headline {
+        font-size: 18pt;
+    }
+
+    .abschnitt_text {
+        width: 100%;
+    }
+
+    .abschnitt img {
+        margin: 20px 0px 0px 0px;
+    }
+
+    /*Community-Seite*/
+    .content_left{
+        width: 100%;
+    }
+
+    .content_right{
+        width: 70%;
+    }
+
+    /**Produktdetailsseite **/
+    .produktbild-kosten{
+        display:inline;
+    }
+    .produktbild-kosten > .produktbild{
+        width:500px;
+    }
+
+    .produktbild-kosten > .kosten{
+        margin-left:40px;
+        width:480px;
+        margin-top: 8px;
+    }
+    .produktinfo0{
+       
+        width:485px;
+    }
+
+    /**Ende Produktdetailsseite-Mobile **/
+}
 
 @media screen and (max-width: 700px) {
 
