@@ -4,7 +4,9 @@
 
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="style.css"/>
+		<link rel="stylesheet" href="style_mobil.css"/>
 		<title>Windmann Laubbläser</title>
 	</head>
 	
@@ -13,6 +15,14 @@
 		<header>
 			<div class="header">
 			
+				<div class="hamburger_wrapper">
+					<div class="hamburger">
+						<hr id="hr-1">
+						<hr id="hr-2">
+						<hr id="hr-3">
+					</div>
+				</div>
+
 				<div id="upper_header">
 				    <img  src="images/logo.png" width="100px" height="100px" alt="Logo von Windmann"/>
 				    <h1>WINDMANN</h1>
@@ -32,12 +42,16 @@
 			</div>
 		</header>
 		
-	    <!--Seitencontent-->	
+	    <!--Content-->	
 		<main class="content">
+
+			<!--Titelbild und Titel-->
             <div id="lower_header">
                 <img src="images/community.jpg" alt="Community" width="100%"/>
                 <h1>Community</h1>
             </div>
+
+			<!--Inhalt-->
             <div id="community_content">
                 <p>Willkommen im Community-Bereich!<br/>
                 Sie haben einen Laubbläser bei uns erworben? Dann können Sie uns hier mitteilen, ob Sie mit unserem Service und Ihrem neuen Gerät zufrieden sind.</p>
@@ -62,15 +76,16 @@
 						</tr>
                     </table>    
                 </div>
+
                 <div class="content_right">
                     <h3>Verfasse eine Rezension!</h3>
-                    <form action="" method="post">
+                    <form action="" method="post" id="formular" onclick = "pruefeEingabe()">
                         <label for="name">Name:</label><br/>
-                        <input class="kommentar_input" type="text"><br/><br/>
-                        <label for="bestellnr">Bestellnummer:</label><br/>
-                        <input class="kommentar_input"type="number" required><br/><br/>
+                        <input class="rezension_input" id="name" type="text"><br/><br/>
+                        <label for="bestnr">Bestellnummer:</label><br/>
+                        <input class="rezension_input" id="bestnr" type="number" required><br/><br/>
                         <label for="produkt">Produkt</label><br/>
-                        <select class="kommentar_input" name="produkte">
+                        <select class="rezension_input" id="produkt">
                             <option value="0" selected>-</option>
                             <option value="1">WM 2500</option>
                             <option value="2">WM 2600</option>
@@ -84,10 +99,11 @@
                             <option value="10">WM 8000</option>
                           </select><br/><br/>
                         <label for="kommentar">Kommentar</label><br>
-                        <textarea  id="kommentarfeld" class="kommentar_input"></textarea><br><br>
-                        <input type="checkbox">
+                        <textarea required id="kommentarfeld" id="kommentar" class="rezension_input"></textarea><br><br>
+                        <input type="checkbox" required>
                         <label for="checkbox">Ich habe die Datenschutzverordnung gelesen und bin einverstanden.</label><br><br>
-                        <input class="kommentar_input" type="submit">
+                        <div id="error" style="color: red;"></div><br/>
+						<input class="rezension_input" type="submit">
                     </form>
                 </div>
             </div>
@@ -119,6 +135,8 @@
 				<h6><a href ="service.html">Kundenservice</a></h6>
 			</div>
 		</footer>
-		
+
+		<script src="validate_community.js"></script>
+		<script src="app.js"></script>
 	</body>
 </html>
