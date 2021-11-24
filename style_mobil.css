@@ -160,6 +160,15 @@
     .abschnitt img {
         margin: 20px 0px 0px 0px;
     }
+
+    /*Community-Seite*/
+    .content_left{
+        width: 100%;
+    }
+
+    .content_right{
+        width: 70%;
+    }
 }
 
 
