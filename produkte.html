@@ -9,7 +9,7 @@
 	</head>
 	
 	<body>
-		<!-- m-->
+
 		<header>
 			<div class="header">
 			
@@ -18,7 +18,6 @@
 				<h1>WINDMANN</h1>
 				<h2>Wissen, woher der Wind weht</h2>
 				</div>
-			
 			<nav>
 				<ul>
 					<li><a href = "index.html">Home</a></li>
@@ -34,52 +33,68 @@
 		
 
 		<!--Filterleiste-->
+	<main class="content">
 		<div class="header-filter">
 
 				
-					<div id="filtern">
-						<a href="https://www.linkedin.com">
-						  <p>Filtern</p>
-						</a>
-					</div>
-						
-						
-					<div id="produkte">
-						<a href="https://www.linkedin.com">
-							<p>Produkte</p>
-						</a>	
-					</div>
-		</div>
-
-		<div class="divFilter"> 
-			<div class="preisSortieren"> 
-				<p>-Preis aufsteigend</p><br>
-				<p>-Blaskraft</p>
+			<div id="filtern">
+				<select  name="filter-select">
+					<option checked="">Suchfilter wählen</option>
+					<option value="Preis aufsteigend">Preis aufsteigend</option>
+					<option value="Preis absteigend">Preis absteigend</option>
+					<option value="Blaskraft aufsteigend">Blaskraft aufsteigend</option>
+					<option value="Blaskraft absteigend">Blaskraft absteigend</option>
+				</select>
 			</div>
 	
-			<div class="anzahl">
-				<p>Placeholder</p>
-			</div>
+				<div id="produkte">
+					<select name="select-product">
+						<option checked="">Produkt wählen</option>
+						<a href="produktdetails.html">
+							<option value="WM 2500">WM 2500</option>
+						</a>
+						<option value="WM 50">WM 50</option>
+						<option value="WM super 300">WM super 300</option>
+						
+					</select>	
+	
+				</div>
 		</div>
 
+		<div class="grau"></div>
 
+	
 		<div class="Produkt-Anordnung">
-			<a href="produktdetails.html">
-				<div class="produkt0">
-					<img src="images/wm_2500.png"    alt="wm 2500" />
-					<p>WM 2500   Preis:250€</p>
-				</div>
-			</a>
+			
+			<div class="produkt0">
+				<a href="produktdetails.html">
+					<img src="images/wm_2500.png"   width="260px" height="150px" alt="wm 2500">
+				</a>
+				<p>WM 2500   Preis:250€</p>
+			
+			</div>
+			
+
+			
 			<div class="produkt1">
-				<img src="images/wm_50_lite.png"   alt="wm 50" >
+				<a href="produktdetails.html">
+					<img src="images/wm_50_lite.png"  width="260px" height="150px" alt="wm 50" >
+				</a>
 				<p>WM 50  Preis:320€</p>
 			</div>
+			
+
+			
 			<div class="produkt2">
-				<img src="images/wm_super_300.png"   alt="wm super 300" >
+				<a href="produktdetails.html">
+					<img src="images/wm_super_300.png" width="260px" height="150px" alt="wm super 300">
+				</a>
 				<p>WM super 300  Preis:150€</p>
 			</div>
+			
 
 		</div>
+	</main>
 
 		<!-- Fusszeile -->
 		<footer>
