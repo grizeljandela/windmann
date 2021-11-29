@@ -42,16 +42,13 @@
 			</div>
 		</header>
 
-	    <!--Content-->
 		<main class="content">
 
-			<!--Titelbild und Titel-->
             <div id="lower_header">
                 <img src="images/community.jpg" alt="Community" width="100%"/>
                 <h1>Community</h1>
             </div>
 
-			<!--Inhalt-->
             <div id="community_content">
                 <p>Willkommen im Community-Bereich!<br/>
                 Sie haben einen Laubbläser bei uns erworben? Dann können Sie uns hier mitteilen, ob Sie mit unserem Service und Ihrem neuen Gerät zufrieden sind.</p>
@@ -79,14 +76,14 @@
 
                 <div class="content_right">
                     <h3>Verfasse eine Rezension!</h3>
-                    <form action="" method="post" id="formular" onclick = "pruefeEingabe()">
+                    <form action="" method="post" id="formular">
                         <label for="name">Name:</label><br/>
                         <input class="rezension_input" id="name" type="text"><br/><br/>
                         <label for="bestnr">Bestellnummer:</label><br/>
-                        <input class="rezension_input" id="bestnr" type="number" required><br/><br/>
-                        <label for="produkt">Produkt</label><br/>
+                        <input required class="rezension_input" id="bestnr" type="number" min="100" max="999"><br/><br/>
+                        <label for="produkt">Produkt:</label><br/>
                         <select class="rezension_input" id="produkt">
-                            <option value="0" selected>-</option>
+                            <option value="0" selected>Alle Produkte</option>
                             <option value="1">WM 2500</option>
                             <option value="2">WM 2600</option>
                             <option value="3">WM 1000</option>
@@ -98,11 +95,11 @@
                             <option value="9">WM 1111</option>
                             <option value="10">WM 8000</option>
                           </select><br/><br/>
-                        <label for="kommentar">Kommentar</label><br>
-                        <textarea required id="kommentarfeld" id="kommentar" class="rezension_input"></textarea><br><br>
+                        <label for="kommentar">Kommentar:</label><br>
+                        <textarea required id="kommentar" class="rezension_input"></textarea><br><br>
                         <input type="checkbox" required>
                         <label for="checkbox">Ich habe die Datenschutzverordnung gelesen und bin einverstanden.</label><br><br>
-                        <div id="error" style="color: red;"></div><br/>
+                        <div id="error"></div><br/>
 						<input class="rezension_input" type="submit">
                     </form>
                 </div>

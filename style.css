@@ -350,8 +350,12 @@ main.content .faq:last-child {
     min-width: 200px;
     height:30px;
 }
-#kommentarfeld{
+#kommentar{
     min-height: 100px;
+}
+
+#error{
+    color: red;
 }
 
 .impressum_box{
@@ -490,9 +494,6 @@ span img{
 	line-height: 3em;
 }
 
-.header-filter{
-    display:flex;
-}
 
 .divgrau{
     height:40px;
@@ -501,60 +502,19 @@ span img{
     background-color:#F2F2F2;
 }
 
-.header-filter > #produkte{
-    background-color:#F2F2F2;
-    border-width:1px;
-    width: 50%;
-    height: 30px;
-    padding-left:2px;
-    padding-top:2px;
+
+#sortierung {
+    padding: 20px;
 }
 
-#filtern {
-    height: 25px;   
-    width: 40px;
-    text-align: center;
-}
-
-#produkte{
-    height: 25px;   
-    width: 40px;
-}
-
-#filtern select{
-    margin-top:2px;
+#sortierung select{
     font-size: 17px;
-    width:100%;
+    width: 250px;
     cursor: pointer;
     border-radius: 10px;
     text-indent: 5px;
 }
 
-#produkte select{
-    padding-top:1px;
-    margin-top:2px;
-    font-size: 17px;  
-    width:100%;
-    cursor: pointer;
-    border-radius: 10px;
-}
-
-.header-filter>#filtern{
-    background-color:#F2F2F2;
-    border-width:1px;
-    width: 50%;
-    padding-top:2px; 
-}
-
-.produkt-filter{
-    display:flex;
-    margin-top:2%;
-}
-
-.produkt-filter > .preisSortieren{
-    border-style: solid;
-    margin-left:20%;
-}
 
 
 /* Ab hier */
@@ -633,12 +593,12 @@ span img{
 
 .produktbild >p{
     margin-left:20px;
-    padding:10px;
 }
 
 .produktbild-kosten> .produktbild{
     background-color: white;
     border-style:solid;
+    padding: 10px;
     border-width: 1px;
     margin-left:40px;
 }
@@ -647,10 +607,9 @@ span img{
     border-style:solid;
     border-width: 1px;
     margin-right:40px;
+    padding: 10px;
     width:320px;
-    padding:10px;
     background-color: white;
-    letter-spacing: 1px;
     line-height: 30px;
 }
 
@@ -669,12 +628,10 @@ span img{
 }
 
 .produktinfo0{
-    margin-top: 20px;
     border-width: 1px;
-    padding:20px 0 20px 3%;
+    padding: 10px;
     margin: 10px 40px 20px 40px;
     background-color: white;
-    letter-spacing:1px;
     border-style: solid;;  
 }
 

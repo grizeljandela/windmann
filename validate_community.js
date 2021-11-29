@@ -8,15 +8,18 @@
     form.addEventListener("submit", (e) =>{
         let msg = [];
 
-        if(uname.value === "" || uname.value == null){
+        unameNoSpace = uname.value.trim()
+        if(unameNoSpace === "" || unameNoSpace == null){
+            msg.push("Anonyme Rezension.")
             /*Für eine leere Eingabe soll als Verfasser Anonym gespeichert werden. Serverseitig?*/
-        }else if(uname.value.length<3){
+        }else if(unameNoSpace.length<3){
             msg.push("Name zu kurz!");
         }
 
+        /* Nicht nötig da in HTML bereits geprüft!
         if(bestnr.value<0 || bestnr.value.length!=3){
-            msg.push("Gib eine gültige(3-stellige) Bestellnummer!")
-        }
+            msg.push("Gib eine gültige (3-stellige) Bestellnummer ein!")
+        }*/
 
         if(msg.length > 0){
             e.preventDefault();

@@ -164,18 +164,19 @@
     .produktbild-kosten{
         display:inline;
     }
+
     .produktbild-kosten > .produktbild{
-        width:500px;
+        width:85%;
+        margin: 0 40px;
     }
 
     .produktbild-kosten > .kosten{
-        margin-left:40px;
-        width:480px;
-        margin-top: 8px;
+        width:85%;
+        margin: 0 40px;
     }
+
     .produktinfo0{
-       
-        width:485px;
+        width:85%;
     }
 
 	.nebeneinander{
@@ -229,6 +230,7 @@
     .bestaetigungs_text h3{
     line-height:4em;
 	}
+
 }
 
 @media screen and (max-width: 700px) {

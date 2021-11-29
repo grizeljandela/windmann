@@ -125,7 +125,7 @@ function removeAllChildNodes(parent) {
 
 sortAufsteigend("preis");
 
-const filter = document.querySelector(".filter-select");
+const filter = document.querySelector(".sort-select");
 filter.addEventListener("change", function() {
     if(filter.value == "Preis aufsteigend") {
         sortAufsteigend("preis");
