@@ -130,7 +130,7 @@ main{
 .titel_index{
     display: flex;
     flex-direction: column;
-    justify-content:flex-end;
+    justify-content: flex-end;
     align-items: center; 
     position: relative;
 }
@@ -556,7 +556,9 @@ span img{
     margin-left:20%;
 }
 
-.Produkt-Anordnung{
+
+/* Ab hier */
+.produkte-frame{
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -567,51 +569,43 @@ span img{
     margin-right: 20px;
 }
 
-.Produkt-Anordnung > .produkt0{
-    border-style:solid;
-    background-color: white;
+.produkt-box{
+    position: relative;
+    border-style: solid;
     border-width: 1px;
     width: 250px;
-    height: auto;
-    padding:20px;
-    margin:1px;  
-}
-
-.Produkt-Anordnung > .produkt1{
-    border-style:solid;
+    height: 170px;
+    margin: 1px;
+    padding: 10px;
     background-color: white;
-    border-width: 1px;
-    width: 250px;
-    height: auto;
-    padding:20px;
-    margin:1px;
-}
-
-.Produkt-Anordnung > .produkt2{
-    border-style:solid;
-    background-color: white;
-    border-width: 1px;
-    width: 250px;
-    height: auto;
-    padding:20px;
-    margin:1px;
-}
-
-.Produkt-Anordnung> .produkt1 > p{
-    margin-top: 10px;
-}
-.Produkt-Anordnung> .produkt0 > p{
-    margin-top: 10px;
-}
-.Produkt-Anordnung> .produkt2 > p{
-    margin-top: 10px;
-}
-
-.Produkt-Anordnung > a {
     text-decoration: none;
-    color:black;
-
+    color: black;
 }
+
+.ps-name{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.ps-preis{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.produkt-box img {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 44%;
+    left: 7%;
+    width: 230px;
+    object-fit: contain;
+}
+
+/* bis hier */
+
+
 
 .artikelHeader{
     margin-top: 30px;
