@@ -47,65 +47,62 @@
 				<h1>Versandadresse</h1>
 			</div>
 
-			<form id="formular" action="bestellbestaetigung.html" method="post" onSubmit="return pruefeEingabe()" />
+			<form id="formular" action="bestellbestaetigung.html" method="post" />
 		<div class="all_inclusiv">
-				<label class="label_versand" for="Name"> Name:</label>
-				<input class ="versand_input" type="text" id="Name" name="Name" required/>
-			<br/>
-			<br/>
-				<label class="label_versand" for="Vorname"> Vorname:</label>
-				<input class ="versand_input" type="text" id="Vorname" name="Vorname" required/>
-			<br/>
-			<br/>
-			<label class="label_versand" for="Straße"> Straße:</label>
-				<input class ="versand_input" type="text" id="Straße" name="Straße" required/>
-			<br/>
-			<br/>
-				<label class="label_versand" for="Hausnummer"> Hausnummer:</label>
-				<input class ="versand_input" type="number" id="Hausnummer" name="Hausnummer" maxlength="3" required/>
-			<br/>
-			<br/>
-				<label class="label_versand" for="Adresszusatz"> Adresszusatz:</label>
+				<label class="label_versand" for="Name"> Name</label>
+				<input class ="versand_input" type="text" id="Name" name="Name" autofocus required />
+			<br />
+			<br />
+				<label class="label_versand" for="Vorname"> Vorname</label>
+				<input class ="versand_input" type="text" id="Vorname" name="Vorname" required />
+			<br />
+			<br />
+				<label class="label_versand" for="Straße"> Straße</label>
+				<input class ="versand_input" type="text" id="Straße" name="Straße" required />
+			<br />
+			<br />
+				<label class="label_versand" for="Hausnummer"> Hausnummer</label>
+				<input class ="versand_input" type="number" id="Hausnummer" name="Hausnummer" min="0" maxlength="3" required />
+			<br />
+			<br />
+				<label class="label_versand" for="Adresszusatz"> Adresszusatz</label>
 				<input class ="versand_input" type="text" id="Adresszusatz" name="Adresszusatz" />
-			<br/>
-			<br/>
-				<label class="label_versand" for="PLZ"> PLZ:</label>
-				<input class ="versand_input" type="number" id="PLZ" name="PLZ" required/>
-			<br/>
-			<br/>
-				<label class="label_versand" for="Wohnort"> Wohnort:</label>
-				<input class ="versand_input" type="text" id="Wohnort" name="Wohnort" required/>
-			<br/>
-			<br/>
-				<label class="label_versand" for="E-MAil-Adresse"> E-Mail:</label>
-				<input class ="versand_input" type="email" id="E-MAil-Adresse" name="E-MAil-Adresse" required/>
-			<br/>
-			<br/>
-				<label class="label_versand" for="Telefonnumer"> Tel.Nummer:</label>
-				<input class ="versand_input" type="number" id="Telefonnumer" name="Telefonnumer" required/>
-			<br/>
-			<br/>
+			<br />
+			<br />
+				<label class="label_versand" for="PLZ"> PLZ</label>
+				<input class ="versand_input" type="number" id="PLZ" name="PLZ" required />
+			<br />
+			<br />
+				<label class="label_versand" for="Wohnort"> Wohnort</label>
+				<input class ="versand_input" type="text" id="Wohnort" name="Wohnort" required />
+			<br />
+			<br />
+				<label class="label_versand" for="E-MAil-Adresse"> E-Mail</label>
+				<input class ="versand_input" type="email" id="E-MAil-Adresse" name="E-MAil-Adresse" required />
+			<br />
+			<br />
+				<label class="label_versand" for="Telefonnumer"> Tel.Nummer</label>
+				<input class ="versand_input" type="number" id="Telefonnumer" name="Telefonnumer" required />
+		
 			<h2>Zahlungsart</h2>
 			<h3>Lastschriftmandat</h3>
-			<br/>
+			
 				<div class="konto">
-						<label class="label_versand" for="Kontoinhaber"> Kontoinhaber:</label>
-						<input class ="versand_input" type="text" id="Kontoinhaber" name="Kontoinhaber" required/>
-					<br/>
-					<br/>
-						<label class="label_versand" for="BIC"> BIC:</label>
-						<input class ="versand_input" type="text" id="BIC" name="BIC" required/>
-					<br/>
-					<br/>
-					<label class="label_versand" for="IBAN"> IBAN:</label>
-						<input class ="versand_input" type="text" id="IBAN" name="IBAN" required/>
-					<br/>
-					<br/>
-						<input type="checkbox" id="AGBs" name="AGBs" required/>
+						<label class="label_versand" for="Kontoinhaber"> Kontoinhaber</label>
+						<input class ="versand_input" type="text" id="Kontoinhaber" name="Kontoinhaber" required />
+					<br />
+					<br />
+						<label class="label_versand" for="BIC"> BIC</label>
+						<input class ="versand_input" type="text" id="BIC" name="BIC" required />
+					<br />
+					<br />
+						<label class="label_versand" for="IBAN"> IBAN</label>
+						<input class ="versand_input" type="text" id="IBAN" name="IBAN" required />
+					<br />
+					<br />
+						<input type="checkbox" id="AGBs" name="AGBs" required />
 						<label for="AGBs"> Ich akzeptiere die genannten Datenschutzbedingungen</label>
-
-					<br/>
-					<br/>
+ 
 				</div>
 			<div class="buttons_versand">
 				<input class ="versand_input" type="submit" value="Bestätigen" style="max-width:200px"/>
@@ -142,5 +139,6 @@
 				<h6><a href ="service.html">Kundenservice</a></h6>
 			</div>
 		</footer>
+		<script src="app.js"></script>
 	</body>
 </html>

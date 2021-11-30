@@ -374,75 +374,82 @@ list-style: none;
 
 }
 
-.titel_warenkorb img {
-    width:100%;
-}
-.titel_warenkorb {
-    background-color: #FEE193;
-}
-.titel_warenkorb h1 {
-   padding: 15px;
-    font-size: 16pt;
-    text-align: center;
-    margin-top: -4px;
-}
 .nebeneinander{
     display:flex;
     flex-direction:row;
 }
 .produkt_anzeige{
-    width:450px;
     display:flex;
     flex-direction: row;
     align-items: flex-start;
-    border-color: black;
-	border:1px solid;
     margin:20px 20px 20px 20px;
 	background-color: white;
+	border: 1px solid;
+    border-color:black;
+    width:fit-content;
+
 }
 .produkt_buttons{
 	display:flex;
     flex-direction:row;
     justify-content:space-between;
     align-items:flex-end; 
+	margin-top:25px;
 }
 .produkt_input{
-    width:auto;
+    min-width:90px;
     height:25px;
-    margin-right:25px;
     display:flex;
-	background-color: white;
+	background-color:#F2F2F2;
+	list-style:none;
+	border-radius:12px;
+	font-size:12pt;
+	border-width:thin;
+	justify-content:center;	
+}
+.produkt_input:hover{
+    background-color:#FFD54F; 
 }
 .mengen_angabe{
-        height: 25px;
-        margin-right: 17px;
-        background-color: white;
+   height: 25px;
+   margin-right:16px;
+   margin-left:4px;
+   background-color: #F2F2F2;
+   border-style:none;
+   font-size:12pt;
  }
 .produkt_text{
     display:flex;
     flex-direction:column;
-	margin-top:20px;
-    margin-left:10px;
-    margin-right:10px;
+	margin:10px 10px 10px 10px;
+    line-height:30px;
 }
 .produkt_anzeige img{
-    width:255px;
-    height:150px;
-    border: 1px solid;
-    border-color: black;  
+    width:250px;
+    height:135px;
+    border-right: 1px solid;
+    border-color:black;
 }
 .produkt_summe{
     display:flex;
     flex-direction: column;
     align-items:flex-start;
     padding-top:30px;
-    padding-left:10%;
-	line-height:30px;
+    margin-right:20px;
+    margin-left:5%;
+	line-height:30px;	
+}
+.produkt_summe input{
+    margin-top:20px;
+    background-color: white;
 }
 .produkt_summe p{
      font-weight: normal;
      font-size: 11pt;
     }
+.produkt_summe a{
+    text-decoration: none;
+}
 .nebeneinander h3{
         font-size:13pt;
     }
@@ -455,7 +462,7 @@ list-style: none;
 }
 .titel_versandadresse h1 {
    padding: 15px;
-    font-size: 16pt;
+    font-size: 30px;
     text-align: center;
     margin-top: -4px;
 }
@@ -466,20 +473,36 @@ list-style: none;
     width:110px;
     display: inline-flex;
 }
+.all_inclusiv h2{
+	line-height:3em;
+}
 .all_inclusiv h3{
-    line-height:3em;
+    line-height:2em;
 }
 .versand_input{
-    width:500px;
+    width:80%;
     height:40px;
 	background-color: white;
+	font-size: 14pt;
 }
 .buttons_versand{
-    margin-left:20px;
-    margin-right:110px;
+    margin-left:15%;
+    margin-right:15%;
+    margin-top:20px;
 	display:flex;
     flex-direction:row;
     justify-content:space-between;
+    color:#F2F2F2;
+}
+.konto {
+	margin-top:10px;
+}
+#AGBs{
+	margin-top:40px;
+	margin-bottom:40px;
+}
+.buttons_versand input{
+	border-radius:12px;
 }
 
 span img{
@@ -487,14 +510,14 @@ span img{
 }
 .bestaetigungs_text{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     padding: 80px 20px 100px 40px; 
 	line-height: 3em;
+	font-size:13pt;
+	text-align:center;
 }
-
-
 .divgrau{
     height:40px;
     margin-left: 20%;
@@ -651,5 +674,16 @@ span img{
     .header {
     width: 100%;
     }
-    }
+	.nebeneinander{
+		align-items:center;
+		margin:auto;
+	}
+	.produkt_anzeige{
+		margin-left:-40px;
+	}
+	.produkt_summe{
+		margin-left:65px;
+		white-space:nowrap;
+	}
+}
 

@@ -180,58 +180,45 @@
     }
 
 	.nebeneinander{
-        display:flex;
         flex-direction:column;
-    }  
-	.produkt_input{
-        width:65px;
-        height:27px;
-        display:flex;
-        background-color: white;
+        align-items: center;
     }
-	.mengen_angabe{
-        height: 25px;
-        margin-right: 17px;
-        background-color: white;
-    }
+    
 	.produkt_summe{
-        display:flex;
         flex-direction: column;
-        align-items:flex-start;
         padding-top:20px;
         padding-bottom: 20px;
 		line-height:35px;
     }
 	.produkt_summe p{
-     font-weight: normal;
-     font-size: 11pt;
+         font-weight: normal;
+         font-size: 11pt;
     }
     .nebeneinander h3{
         font-size:13pt;
     }
 
 	.buttons_versand{
-    margin-left:20px;
-    margin-right:20px;
-	display:flex;
-    flex-direction:row;
-    justify-content:space-between;
+		margin-left:20px;
+		margin-right:20px;
+		flex-direction:row;
+		justify-content:space-between;
 	}
 	.versand_input{
         background-color: white;
     }
 	.all_inclusiv h2{
-    line-height:3em;
+		line-height:3em;
 	}
     .all_inclusiv h3{
-    line-height:1em;
+		line-height:1em;
 	}
 
     .bestaetigungs_text h3{
-    line-height:4em;
+		line-height:4em;
 	}
-
 }
+
 
 @media screen and (max-width: 700px) {
 
@@ -458,4 +445,16 @@
         text-align: right;
         margin-right: 10px;
     }
+}
+@media screen and (max-width: 520px) {
+	.produkt_anzeige{
+	    flex-direction:column;
+	}
+	.produkt_anzeige img{
+		border-right:none;
+		border-bottom:1px solid;
+	}
+	.nebeneinander{
+        align-items: center;
+	}
 }
