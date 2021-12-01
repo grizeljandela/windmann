@@ -594,13 +594,14 @@ span img{
     margin-top: 30px;
     border-style:solid;
     border-width:1px;
-    width:100px;
+    width:150px;
     position:relative;
     left:40px;
     text-align:center;
     background-color:white;
     font-weight:2;
 }
+
 
 .produktbild-kosten{
     display: flex;
@@ -635,8 +636,26 @@ span img{
     background-color: white;
     line-height: 30px;
 }
+.anzahl_kont{
+    display:flex;
+    flex-direction: row;
+}
+.anzahl_kont > label {
+    margin-left:12px;
+    padding-top:136px;
+}
 
-.kosten > button{
+.mengen_angabe_produkt{
+    height: 25px;
+    margin-right:16px;
+    margin-left:2px;
+    background-color: #F2F2F2;
+    border-style:none;
+    font-size:12pt;
+    margin-top:137px;
+  }
+
+.kosten > .anzahl_kont > button{
     margin-top:135px;
     font-size:16px;
     background-color:white;
@@ -646,7 +665,7 @@ span img{
     background-color: #F2F2F2; 
 }
 
-.kosten > button:hover{
+.kosten > .anzahl_kont >button:hover{
   background-color:#FFD54F
 }
 
