@@ -16,10 +16,10 @@
             msg.push("Name zu kurz!");
         }
 
-        /* Nicht nötig da in HTML bereits geprüft!
+        /* Nicht nötig da in HTML bereits geprüft!*/
         if(bestnr.value<0 || bestnr.value.length!=3){
             msg.push("Gib eine gültige (3-stellige) Bestellnummer ein!")
-        }*/
+        }
 
         if(msg.length > 0){
             e.preventDefault();
