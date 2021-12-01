@@ -373,7 +373,16 @@ padding: 10px 0 20px 0;
 list-style: none;
 
 }
-
+.titel_warenkorb img{
+    width:100%;
+}
+.titel_warenkorb h1{
+	 padding: 15px;
+    font-size: 30px;
+    text-align: center;
+    margin-top: -5px;
+    background-color: #FEE193;
+}
 .nebeneinander{
     display:flex;
     flex-direction:row;
@@ -437,7 +446,8 @@ list-style: none;
     padding-top:30px;
     margin-right:20px;
     margin-left:5%;
-	line-height:30px;	
+	line-height:30px;
+	padding-bottom:20px;	
 }
 .produkt_summe input{
     margin-top:20px;
@@ -457,14 +467,13 @@ list-style: none;
 .titel_versandadresse img {
     width:100%;
 }
-.titel_versandadresse {
-    background-color: #FEE193;
-}
+
 .titel_versandadresse h1 {
    padding: 15px;
     font-size: 30px;
     text-align: center;
-    margin-top: -4px;
+    margin-top: -5px;
+	background-color: #FEE193;
 }
 .all_inclusiv{
     padding:20px 20px 20px 20px;
@@ -485,6 +494,13 @@ list-style: none;
 	background-color: white;
 	font-size: 14pt;
 }
+.versand_input:hover{
+	background-color:#FFD54F;
+}
+.versand_input input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 .buttons_versand{
     margin-left:15%;
     margin-right:15%;
@@ -495,7 +511,7 @@ list-style: none;
     color:#F2F2F2;
 }
 .konto {
-	margin-top:10px;
+	margin-top:20px;
 }
 #AGBs{
 	margin-top:40px;
@@ -701,12 +717,9 @@ span img{
 		align-items:center;
 		margin:auto;
 	}
-	.produkt_anzeige{
-		margin-left:-40px;
-	}
 	.produkt_summe{
 		margin-left:65px;
-		white-space:nowrap;
+		padding-bottom:20px;
 	}
 }
 

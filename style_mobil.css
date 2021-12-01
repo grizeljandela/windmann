@@ -189,6 +189,7 @@
         padding-top:20px;
         padding-bottom: 20px;
 		line-height:35px;
+		margin-left:0px;
     }
 	.produkt_summe p{
          font-weight: normal;
@@ -454,7 +455,5 @@
 		border-right:none;
 		border-bottom:1px solid;
 	}
-	.nebeneinander{
-        align-items: center;
-	}
+	
 }
