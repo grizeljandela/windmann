@@ -181,11 +181,20 @@ main {
   width: 30%;
 }
 
-.artikel > img {
-  width: 100%;
-  border: 1px solid;
-  border-color: black;
-  margin-bottom: 5px;
+.homepage_img_container{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 150px;
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+
+.homepage_img_container img {
+  width: 290px;
+  object-fit: contain;
 }
 
 .news {
@@ -598,16 +607,25 @@ span img {
 }
 
 .produkt-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   border-style: solid;
   border-width: 1px;
-  width: 250px;
-  height: 170px;
+  width: 300px;
+  height: 200px;
   margin: 1px;
   padding: 10px;
   background-color: white;
   text-decoration: none;
   color: black;
+}
+
+.blaskraft_id {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .ps-name {
@@ -623,11 +641,8 @@ span img {
 }
 
 .produkt-box img {
-  position: absolute;
-  transform: translateY(-50%);
-  top: 44%;
-  left: 7%;
-  width: 230px;
+  height: 120px;
+  width: 280px;
   object-fit: contain;
 }
 
@@ -740,4 +755,18 @@ span img {
     margin-left: 65px;
     padding-bottom: 20px;
   }
+
 }
+
+@media screen and (max-width: 1580px) and (min-width: 1090px) {
+  #produkt_desktop2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  #produkt_desktop2 {
+    display: none;
+  }
+}
+
