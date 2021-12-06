@@ -321,6 +321,10 @@ main.content .faq:last-child {
   padding: 10px;
 }
 
+#lower_header img{
+  width: 100%;
+}
+
 #community_content {
   padding: 20px;
 }
@@ -364,10 +368,26 @@ main.content .faq:last-child {
   width: 90%;
   min-width: 200px;
   height: 30px;
+  font-size: 12pt;
+}
+
+.rezension_input:hover {
+  background-color: #ffd54f;
 }
 
 #kommentar {
   min-height: 100px;
+  max-width: 100%;
+}
+
+#rezension_submit{
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  border-width: thin;
+}
+
+#rezension_submit:hover{
+  background-color: #ffd54f;
 }
 
 #error {
