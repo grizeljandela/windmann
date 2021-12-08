@@ -424,12 +424,13 @@ main.content .faq:last-child {
 .nebeneinander {
   display: flex;
   flex-direction: row;
+  align-items:center;
+  justify-content:center;
 }
 
 .produkt_anzeige {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
   margin: 20px 20px 20px 20px;
   background-color: white;
   border: 1px solid;
@@ -487,12 +488,12 @@ main.content .faq:last-child {
 .produkt_summe {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding-top: 30px;
-  margin-right: 20px;
-  margin-left: 5%;
+  padding-top:20px;
+  padding-right: 20px;
+  padding-left:3%;
   line-height: 30px;
   padding-bottom: 20px;
+  margin:0px;
 }
 
 .produkt_summe input {
@@ -552,11 +553,6 @@ main.content .faq:last-child {
 
 .versand_input:hover {
   background-color: #ffd54f;
-}
-
-.versand_input input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
 }
 
 .buttons_versand {
@@ -774,15 +770,10 @@ span img {
   .header {
     width: 100%;
   }
-  .nebeneinander {
-    align-items: center;
-    margin: auto;
-  }
   .produkt_summe {
-    margin-left: 65px;
+    margin-left: 4%;
     padding-bottom: 20px;
   }
-
 }
 
 @media screen and (max-width: 1580px) and (min-width: 1090px) {
