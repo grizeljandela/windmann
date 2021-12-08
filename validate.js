@@ -24,10 +24,10 @@ function setInputType(input) {
 
     case "text":
 
-    newRegex = new RegExp("^[a-zA-Z- ]{2,}$");
+    newRegex = new RegExp("^([\u00C0-\u017Fa-zA-Z-]{2,}[ ]*[\u00C0-\u017Fa-zA-Z-]*)+$");
 
     if (input.id === "Adresszusatz") {
-      newRregex = new RegExp("^[a-zA-Z0-9- ]*$");
+      newRegex = new RegExp("^[a-zA-Z0-9- ]*$");
 
     }else if (input.id === "Bic") {
       /* ISO 9362 */
@@ -42,7 +42,7 @@ function setInputType(input) {
 
     case "number":
 
-    newRegex = new RegExp("^[0-9]+$");
+    newRegex = new RegExp("^[1-9]+[0-9]*$");
 
     if(input.id === "Plz") {
       newRegex = new RegExp("^([0]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{3}$");
