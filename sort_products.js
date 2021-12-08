@@ -2,7 +2,7 @@ const a = [
     {
         name: "WM 2500",
         preis: "250",
-        bild: "images/wm_2500.JPG",
+        bild: "images/wm_2500.jpg",
         blaskraft: "8"
     },
     {
@@ -14,7 +14,7 @@ const a = [
     {
         name: "WM super 300",
         preis: "500",
-        bild: "images/wm_super_300.JPG",
+        bild: "images/wm_super_300.jpg",
         blaskraft: "20"
     },
     {
@@ -26,37 +26,37 @@ const a = [
     {
         name: "WM 2600",
         preis: "320",
-        bild: "images/wm_2600.JPG",
+        bild: "images/wm_2600.jpg",
         blaskraft: "9"
     },
     {
         name: "WM Super 22",
         preis: "600",
-        bild: "images/wm_super_22.JPG",
+        bild: "images/wm_super_22.jpg",
         blaskraft: "15"
     },
     {
         name: "WM 55 Lite",
         preis: "50",
-        bild: "images/wm_55_lite.JPG",
+        bild: "images/wm_55_lite.jpg",
         blaskraft: "25"
     },
     {
         name: "WM Super 121",
         preis: "800",
-        bild: "images/wm_super_121.JPG",
+        bild: "images/wm_super_121.jpg",
         blaskraft: "10"
     },
     {
         name: "WM 1111",
         preis: "1150",
-        bild: "images/wm_1111.JPG",
+        bild: "images/wm_1111.jpg",
         blaskraft: "22"
     },
     {
         name: "WM 8000",
         preis: "1000",
-        bild: "images/wm_8000.JPG",
+        bild: "images/wm_8000.jpg",
         blaskraft: "30"
     }
 ];
@@ -69,11 +69,11 @@ function generateProductsOntoPage() {
         let link = document.createElement("a");
         link.classList.add("product-anchor");
         link.setAttribute("href","produktdetails.html");
-        
+
         let box = document.createElement("div");
         box.classList.add("produkt-box");
-        
-        
+
+
         let name = document.createElement("p");
         name.classList.add("ps-name");
         let price = document.createElement("p");
@@ -127,7 +127,7 @@ function sortAufsteigend(attribut) {
             return 0;
         });
     }
-        
+
     generateProductsOntoPage();
 }
 
@@ -157,7 +157,7 @@ function sortAbsteigend(attribut) {
             return 0;
         });
     }
-        
+
     generateProductsOntoPage();
 }
 

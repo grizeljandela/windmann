@@ -4,114 +4,144 @@ console.log("validate.js geladen");
 
 const form = document.getElementById("formular");
 
-form.addEventListener("submit", (e) => {
+if (form !== null) {
 
-  if (!pruefeEingabe()) {
-    e.preventDefault();
+  form.addEventListener("submit", function(e) {
+
+    if (!pruefeEingabe()) {
+      e.preventDefault();
+    }
+
+  });
+
+}else{
+  console.log("Fehler: Formular existiert nicht, Prüfung inaktiv.");
+}
+
+function setInputType(input) {
+  let newRegex;
+  switch (input.type) {
+
+    case "text":
+
+    newRegex = new RegExp("^[a-zA-Z- ]{2,}$");
+
+    if (input.id === "Adresszusatz") {
+      newRregex = new RegExp("^[a-zA-Z0-9- ]*$");
+
+    }else if (input.id === "Bic") {
+      /* ISO 9362 */
+      newRegex = new RegExp("^(([A-Z0-9]{4}[A-Z]{2}[A-Z0-9]{2})|([A-Z0-9]{4}[A-Z]{2}[A-Z0-9]{2}[A-Z0-9]{3}))$");
+
+    }else if (input.id === "Iban") {
+      /* ISO 13616 */
+      newRegex = new RegExp("^[A-Z]{2}[0-9]{2}[a-zA-Z0-9]{16,30}$");
+    }
+
+    break;
+
+    case "number":
+
+    newRegex = new RegExp("^[0-9]+$");
+
+    if(input.id === "Plz") {
+      newRegex = new RegExp("^([0]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{3}$");
+
+    }else if (input.id === "Telefonnummer") {
+      newRegex = new RegExp("^[0-9]{4,}$");
+    }
+
+    break;
+
+    default:
+
+    newRegex = null;
+
+    break;
   }
-
-});
+  return newRegex;
+}
 
 function pruefeEingabe() {
 
   console.log("call pruefeEingabe()");
 
+  let regex;
+  var onError = false;
+  var errorListDebug = [];
 
-  if (form != null) {
+  Array.from(form.elements).forEach((input) => {
 
-    var regex;
-    var onError = false;
-    var errorListDebug = [];
+    regex = setInputType(input);
 
-    Array.from(form.elements).forEach((input) => {
+    try{
 
-      switch (input.type) {
-
-        case "text":
-
-        regex = new RegExp("^[a-zA-Z- ]{4,}$");
-
-        if (input.id === "Adresszusatz") {
-          regex = new RegExp("^[a-zA-Z0-9- ]+$");
-
-        }else if (input.id === "BIC") {
-          /* ISO 9362 */
-          regex = new RegExp("^(([A-Z0-9]{4}[A-Z]{2}[A-Z0-9]{2})|([A-Z0-9]{4}[A-Z]{2}[A-Z0-9]{2}[A-Z0-9]{3}))$");
-
-        }else if (input.id === "IBAN") {
-          /* ISO 13616 */
-          regex = new RegExp("^[A-Z]{2}[0-9]{2}[a-zA-Z0-9]{16,30}$");
-        }
-
-        break;
-
-        case "number":
-
-        regex = new RegExp("^[0-9]*$");
-
-        if(input.id === "PLZ") {
-          regex = new RegExp("^([0]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{3}$");
-    
-        }else if (input.id === "Telefonnumer") {
-          regex = new RegExp("^[0-9]{8,}$");
-        }
-
-        break;
-
-        default:
-
-        regex = null;
-
-        break;
+      if((regex != null) && (regex.test(input.value) == false)) {
+        throw{ stderr: input.id};
+      }else{
+        input.style.border = null;
+        removeError(input);
       }
 
-      try{
-
-        if((regex != null) && (regex.test(input.value) == false)) {
-          throw{ stderr: input.id};
-        }else{
-          input.style.border = null;
-        }
-
-      }catch(e) {
-        onError = true;
-        input.setAttribute("style", "border:2px solid #ff0000;");
-        errorListDebug.push(e.stderr);
-      }
-
-    });
-
-    if (onError == false) {
-      console.log("alles OK");
-      return true;
+    }catch(e) {
+      onError = true;
+      input.setAttribute("style", "border:2px solid #ff0000;");
+      errorListDebug.push(e.stderr);
+      appendError(input);
     }
 
+  });
 
-  }else{
-    console.log("FEHLER: form ist null");
+  if (onError == false) {
+    console.log("alles OK");
+    return true;
   }
+
   console.log("onError = true");
   console.log("Fehler in Formularfeldern: "+errorListDebug);
-
-  appendError();
 
   return false;
 }
 
-function appendError() {
-
-  let error_out = document.createElement("p");
-
-  error_out.appendChild(document.createTextNode("Bitte beheben Sie die markierten Fehler im Formular."));
-
-  error_out.setAttribute("style", "color: red; padding-top: 20px;");
-
-  error_out.setAttribute("id", "stderr");
-  error_out.setAttribute("class", "all_inclusiv");
-
-  if (document.getElementById("stderr") == null) {
-
-    document.getElementsByClassName("all_inclusiv")[0].appendChild(error_out);
-
+function removeError(input) {
+  if (input.nextSibling != null && input.nextSibling.id == "stderr") {
+    console.log("entferne Meldung von: "+input.id)
+    input.nextSibling.remove();
   }
+}
+
+function appendError(inputField) {
+
+  let error_dict = {
+    Name: "Der Name besteht aus mindestens zwei Buchstaben.",
+    Vorname: "Der Vorname besteht aus mindestens zwei Buchstaben.",
+    Strasse: "Bitte geben Sie mindestens zwei Buchstaben ein.",
+    Hausnummer: "Die Hausnummer muss aus einer ganzen Zahl bestehen. Weitere Angaben im Adresszusatz.",
+    Adresszusatz: "Im Adresszusatz sind Zahlen, Buchstaben, Leerzeichen und '-' erlaubt.",
+    Plz: "Geben Sie eine 5-stellige Postleitzahl an.",
+    Wohnort:"Bitte geben Sie mindestens zwei Buchstaben ein.",
+    Telefon: "Die Telefonnummer besteht aus mindestens 4 Zahlen.",
+    Kontoinhaber: "Bitte geben Sie mindestens zwei Buchstaben ein.",
+    Bic: "Geben Sie eine gültige 8 oder 11-stellige BIC an.",
+    Iban: "Geben Sie eine gültige IBAN mit maximal 34 Zeichen an."
+  }
+
+  let newError = function () {
+    let error_out = document.createElement("p");
+    let error_msg;
+    error_msg = error_dict[inputField.id];
+    error_out.appendChild(document.createTextNode(error_msg));
+    error_out.setAttribute("id", "stderr");
+    error_out.setAttribute("class", "all_inclusiv");
+    return error_out;
+  };
+
+  let insertErrorAfterInput = function (input, error) {
+    if(input.nextSibling.id != "stderr") {
+      input.parentNode.insertBefore(error, input.nextSibling);
+    }
+  };
+
+  insertErrorAfterInput(inputField, newError());
+
 }

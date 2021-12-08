@@ -547,6 +547,7 @@ main.content .faq:last-child {
   height: 40px;
   background-color: white;
   font-size: 14pt;
+  margin-bottom: 20px;
 }
 
 .versand_input:hover {
@@ -575,6 +576,11 @@ input::-webkit-inner-spin-button {
 #AGBs {
   margin-top: 40px;
   margin-bottom: 40px;
+}
+
+#stderr {
+  color: red;
+  padding: 0 0 20px 0px;
 }
 
 .buttons_versand input {
@@ -760,6 +766,7 @@ span img {
     width: 100%;
   }
 
+
   footer {
     width: 100%;
   }
@@ -789,4 +796,3 @@ span img {
     display: none;
   }
 }
-
