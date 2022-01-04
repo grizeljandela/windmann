@@ -13,6 +13,31 @@
 
 	<body>
 
+		<?php 
+			$id = $_GET['id'];
+			//$modell="";
+			//$nettopreis=0;
+			//$details="";
+			//$blaskraft=0;
+			//$produktbild="";
+
+			$file_json = file_get_contents('products.json');
+			$decoded_json = json_decode($file_json, true);
+			
+			foreach($decoded_json as $produkt){
+				if($produkt['produktID']==$id){
+					$modell=$produkt['modell'];
+					$nettopreis=$produkt['nettopreis'];
+					$details=$produkt['details'];
+					$blaskraft=$produkt['blaskraft'];
+					$produktbild=$produkt['produktbild'];
+					break;
+				}
+			}
+
+
+		?>
+
 		<header>
 			<div class="header">
 
@@ -33,7 +58,7 @@
 			<nav>
 				<ul>
 					<li><a href = "index.html">Home</a></li>
-					<li id="nav_highlighted"><a href = "produkte.html">Produkte</a></li>
+					<li id="nav_highlighted"><a href = "produkte.php">Produkte</a></li>
 					<li><a href = "service.html">Service</a></li>
 					<li><a href = "community.html">Community</a></li>
 					<li><a href = "impressum.html">Impressum</a></li>
@@ -46,17 +71,17 @@
 
 		<main class="content">
 
-			<h2 class="artikelHeader">WM 2500</h2>
+			<h2 class="artikelHeader"><?php echo $modell ?></h2>
 
 			<div class="produktbild-kosten">
 
 				<div class="produktbild">
-					<img src="images/wm_2500.jpg"  alt="wm_2500">
+					<img src="<?php echo $produktbild ?>"  alt="<?php $modell ?>">
 				</div>
 
 				<div class="kosten">
 
-					<p>Preis: 250€<br/>
+					<p>Preis: <?php echo $nettopreis ?>€<br/>
 					z.Z. MwSt. 19%<br/>
 					z.Z. Versandtkosten 19,95€<br/>
 					</p>
@@ -82,7 +107,7 @@
 			</div>
 			<div class="produktinfo_container">
 				<div class="produktinfo0">
-					<p>Artikelnummer: 1</p>
+					<p>Artikelnummer: <?php echo $id ?></p>
 					<br/>
 					<p>Detail:</p>
 					<ul>
@@ -93,7 +118,7 @@
 
 					<br/><br/><br/>
 					<p>Blaskraft</p>
-					<p><b>8N</b></p>
+					<p><b><?php echo $blaskraft ?>N</b></p>
 				</div>
 			</div>
 

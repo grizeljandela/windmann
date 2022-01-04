@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="de">
@@ -10,6 +11,30 @@
 		<link rel="icon" href="images/logo.png">
 		<title>Windmann Laubbläser</title>
 	</head>
+
+
+	<?php 
+
+		require_once ("connection.php");
+
+		$q = "SELECT * FROM produkte";
+
+		$result = $conn->query($q);
+
+		$holder_array = Array();
+
+		while ($row=$result->fetch_assoc()){
+			//echo "$row[produktID] $row[modell] $row[nettopreis] $row[details] $row[blaskraft] <img src='$row[produktbild]'/> <br>";
+			$holder_array[] = $row;
+		}
+
+		$json_array = json_encode($holder_array);
+		//var_dump($json_array);   String JSON Array von Objekte, diese Objekte sind assoziative Arrays
+
+		file_put_contents("products.json", $json_array);
+
+	?>
+
 
 	<body>
 
@@ -32,7 +57,7 @@
 			<nav>
 				<ul>
 					<li><a href = "index.html">Home</a></li>
-					<li id="nav_highlighted"><a href = "produkte.html">Produkte</a></li>
+					<li id="nav_highlighted"><a href = "produkte.php">Produkte</a></li>
 					<li><a href = "service.html">Service</a></li>
 					<li><a href = "community.html">Community</a></li>
 					<li><a href = "impressum.html">Impressum</a></li>
@@ -44,21 +69,21 @@
 
 
 		<!--Filterleiste-->
-	<main class="content">
+		<main class="content">
 
-		<div id="sortierung">
-			<label>Sortieren nach:</label>
-			<select class="sort-select">
-				<option value="Preis aufsteigend">Preis aufsteigend</option>
-				<option value="Preis absteigend">Preis absteigend</option>
-				<option value="Blaskraft aufsteigend">Blaskraft aufsteigend</option>
-				<option value="Blaskraft absteigend">Blaskraft absteigend</option>
-			</select>
-		</div>
+			<div id="sortierung">
+				<label>Sortieren nach:</label>
+				<select class="sort-select">
+					<option value="Preis aufsteigend">Preis aufsteigend</option>
+					<option value="Preis absteigend">Preis absteigend</option>
+					<option value="Blaskraft aufsteigend">Blaskraft aufsteigend</option>
+					<option value="Blaskraft absteigend">Blaskraft absteigend</option>
+				</select>
+			</div>
 
 
-		<div class="produkte-frame"></div>
-	</main>
+			<div class="produkte-frame"></div>
+		</main>
 
 		<!-- Fusszeile -->
 		<footer>
@@ -88,8 +113,8 @@
 			</div>
 		</footer>
 	
-	<script src="sort_products.js"></script>
-	<script src="app.js"></script>
+		<script src="sort_products.js"></script>
+		<script src="app.js"></script>
 	</body>
 
-	</html>
+</html>
