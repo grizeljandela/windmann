@@ -1,0 +1,163 @@
+<?php
+include("warenkorb_func.php");
+
+// TODO ...
+
+?>
+
+<!DOCTYPE html>
+<html lang="de">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 700px)" href="style_mobil.css"/>
+		<title>Windmann Laubbläser</title>
+		<link rel="icon" href="images/logo.png">
+	</head>
+
+	<body>
+	<header>
+			<div class="header">
+
+				<div class="hamburger_wrapper">
+					<div class="hamburger">
+						<hr id="hr-1">
+						<hr id="hr-2">
+						<hr id="hr-3">
+					</div>
+				</div>
+
+				<div id="upper_header">
+					<img src="images/logo.png" width="100" height="100" alt="Logo von Windmann"/>
+					<h1>WINDMANN</h1>
+					<h2>Wissen, woher der Wind weht</h2>
+				</div>
+			<nav>
+				<ul>
+					<li><a href = "index.html">Home</a></li>
+					<li><a href = "produkte.html">Produkte</a></li>
+					<li><a href="service.html">Service</a></li>
+					<li><a href="community.html">Community</a></li>
+					<li><a href="impressum.html">Impressum</a></li>
+					<li id="nav_highlighted"><a href = "warenkorb.html">Warenkorb</a></li>
+				</ul>
+			</nav>
+
+			</div>
+		</header>
+
+	<!-- Content -->
+		<main class="content">
+
+			<div class="titel_warenkorb">
+				<img src="images/warenkorb.jpg" alt="Warenkorb"/>
+				<h1>Warenkorb</h1>
+			</div>
+<div class="nebeneinander">
+	<div>
+		<div class="nebeneinander">
+			<div class="produkt_anzeige">
+				<img src="images/wm_2500.jpg" alt="Produkt1"/>
+
+					<div class="produkt_text">
+							<div>
+							<p>Produkt: WM 1000</p>
+
+							<p>Preis: 100€</p>
+
+						</div>
+
+						<div class="produkt_buttons">
+							<p> Menge:</p>
+								<select class="mengen_angabe" name="Menge">
+									<option value="0" selected>1</option>
+									<option value="1">2</option>
+									<option value="2">3</option>
+									<option value="3">4</option>
+									<option value="4">5</option>
+									<option value="5">6</option>
+									<option value="6">7</option>
+									<option value="7">8</option>
+									<option value="8">9</option>
+									<option value="9">10</option>
+								</select>
+
+							<input class="produkt_input" type="reset" value="Entfernen"/>
+						</div>
+					</div>
+			</div>
+	</div>
+	<div class="nebeneinander">
+			<div class="produkt_anzeige">
+				<img src="images/wm_1000.jpg" alt="Produkt2"/>
+					<div class="produkt_text">
+						<div>
+						<p>Produkt: WM 1000</p>
+
+						<p>Preis: 100€</p>
+						</div>
+
+						<div class="produkt_buttons">
+							<p> Menge:</p>
+								<select class="mengen_angabe" name="Menge">
+									<option value="0" selected>1</option>
+									<option value="1">2</option>
+									<option value="2">3</option>
+									<option value="3">4</option>
+									<option value="4">5</option>
+									<option value="5">6</option>
+									<option value="6">7</option>
+									<option value="7">8</option>
+									<option value="8">9</option>
+									<option value="9">10</option>
+								</select>
+							<input class="produkt_input" type="reset" value="Entfernen"/>
+						</div>
+					</div>
+			</div>
+	</div>
+	</div>
+			<div class="produkt_summe">
+
+				<h3>Summe (2 Artikel):</h3>
+				<p>Produktpreis: 350€</p>
+				<P>Versandkosten: 19,95€</p>
+				<p>Mwst.: 66,50€</p>
+				<h3>Insgesamt: 436,45€</h3>
+				<a href="versandadresse.html"><input class="produkt_input" type="submit" value="Bezahlen" /></a>
+			</div>
+</div>
+		</main>
+
+		<!-- Fusszeile -->
+		<footer>
+			<div class="footer_element">
+				<h5>Windmann-Seite</h5>
+				<p><a href="impressum.html">Impressum</a></p>
+				<p><a href="datenschutz.html">Datenschutz</a></p>
+			</div>
+
+			<div class="footer_element">
+				<h5>Kontakt</h5>
+				<h6><a href="mailto:service@laubblaeser.de">service@laubblaeser.de</a></h6>
+				<p>Öffnungszeiten:</p>
+				<p>Mo-Fr</p>
+				<p>10-16 Uhr</p>
+			</div>
+
+			<div class="footer_element">
+				<h5>Telefon/Fax</h5>
+				<h6>Tel: 0800 912345</h6>
+				<p>Fax: 0800 912346</p>
+			</div>
+
+			<div class="footer_element">
+				<h5>Hilfe</h5>
+				<h6><a href ="service.html">Kundenservice</a></h6>
+			</div>
+		</footer>
+		<script src="app.js"></script>
+	</body>
+</html>
