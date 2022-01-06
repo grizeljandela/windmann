@@ -34,7 +34,7 @@
 			    <nav>
 			    	<ul>
 				    	<li><a href = "index.html">Home</a></li>
-				    	<li><a href = "produkte.html">Produkte</a></li>
+				    	<li><a href = "produkte.php">Produkte</a></li>
 				    	<li><a href = "service.html">Service</a></li>
 				    	<li id="nav_highlighted"><a href = "community.php">Community</a></li>
 				    	<li><a href = "impressum.html">Impressum</a></li>
