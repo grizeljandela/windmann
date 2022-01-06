@@ -39,7 +39,7 @@ include("warenkorb_func.php");
 					<li><a href = "index.html">Home</a></li>
 					<li><a href = "produkte.html">Produkte</a></li>
 					<li><a href="service.html">Service</a></li>
-					<li><a href="community.html">Community</a></li>
+					<li><a href="community.php">Community</a></li>
 					<li><a href="impressum.html">Impressum</a></li>
 					<li id="nav_highlighted"><a href = "warenkorb.html">Warenkorb</a></li>
 				</ul>

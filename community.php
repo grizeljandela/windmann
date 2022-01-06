@@ -14,6 +14,7 @@
 	<body>
 
 		<header>
+
 			<div class="header">
 
 				<div class="hamburger_wrapper">
@@ -33,9 +34,9 @@
 			    <nav>
 			    	<ul>
 				    	<li><a href = "index.html">Home</a></li>
-				    	<li><a href = "produkte.php">Produkte</a></li>
+				    	<li><a href = "produkte.html">Produkte</a></li>
 				    	<li><a href = "service.html">Service</a></li>
-				    	<li id="nav_highlighted"><a href = "community.html">Community</a></li>
+				    	<li id="nav_highlighted"><a href = "community.php">Community</a></li>
 				    	<li><a href = "impressum.html">Impressum</a></li>
 				    	<li><a href = "warenkorb.html">Warenkorb</a></li>
 				    </ul>
@@ -55,53 +56,77 @@
                 Sie haben einen Laubbläser bei uns erworben? Dann können Sie uns hier mitteilen, ob Sie mit unserem Service und Ihrem neuen Gerät zufrieden sind.</p>
                 <div class="content_left">
                     <h3>Das sagen unsere Kunden:</h3>
-                    <table>
-                        <tr>
-							<td>Hansi<br/><em>WM 2500</em></td>
-							<td>Lieferung und Bestellung waren unkompliziert, die Geräte funktionieren einwandfrei.</td>
-						</tr>
-                        <tr>
-							<td>Felix Fischer<br/><em>WM 1000</em></td>
-							<td>Ausgeliefertes Produkt war defekt aber habe direkt ein neues zugeschickt bekommen. Super Service!</td>
-						</tr>
-                        <tr>
-							<td>bettina<br/><em>WM Super 22</em></td>
-							<td>Alles super. Gerne wieder !!!</td>
-						</tr>
-                        <tr>
-							<td>Anonym<br/><em>WM 8000</em></td>
-							<td>Superschnelle und zuverlässige Abwicklung, Vielen Dank!</td>
-						</tr>
-                    </table>
+
+					<?php 
+					include("connection.php");
+					
+					$query = "SELECT k.Verfasser, k.Text, p.Modell FROM kommentare k INNER JOIN produkte p ON k.ProduktID = p.ProduktID ORDER BY RAND() LIMIT 4";
+					
+					$result = mysqli_query($conn, $query);
+
+					echo "<table>";
+					while($row = mysqli_fetch_array($result)){
+						echo "<tr><td>" . $row["Verfasser"] . "<br/><em>" . $row["Modell"] . "</em></td><td>" . $row["Text"] . "</td></tr>"; 
+					}
+					echo "</table>";
+					?>
                 </div>
 
                 <div class="content_right">
                     <h3>Verfasse eine Rezension!</h3>
                     <form action="" method="post" id="formular">
                         <label for="name">Name:</label><br/>
-                        <input class="rezension_input" id="name" type="text"><br/><br/>
+                        <input class="rezension_input" id="name" name="verfasser" type="text"><br/><br/>
                         <label for="bestnr">Bestellnummer:</label><br/>
-                        <input required class="rezension_input" id="bestnr" type="number" min="100" max="999"><br/><br/>
+                        <input required class="rezension_input" id="bestnr" name="bestnr" type="number" min="100" max="999"><br/><br/>
                         <label for="produkt">Produkt:</label><br/>
-                        <select class="rezension_input" id="produkt">
+                        <select class="rezension_input" id="produkt" name="prodid">
                             <option value="0" selected>Alle Produkte</option>
-                            <option value="1">WM 2500</option>
-                            <option value="2">WM 2600</option>
-                            <option value="3">WM 1000</option>
-                            <option value="4">WM Super 300</option>
-                            <option value="5">WM 50 Lite</option>
-                            <option value="6">WM Super 22</option>
-                            <option value="7">WM 55 Lite</option>
-                            <option value="8">WM Super 121</option>
-                            <option value="9">WM 1111</option>
-                            <option value="10">WM 8000</option>
-                          </select><br/><br/>
-                        <label for="kommentar">Kommentar:</label><br>
-                        <textarea required id="kommentar" class="rezension_input"></textarea><br><br>
+							
+							<?php 
+							$query = "SELECT ProduktID, Modell FROM produkte";
+							
+							$result = mysqli_query($conn, $query);
+							
+							while($row = mysqli_fetch_array($result)){
+								echo "<option value='" . $row["ProduktID"] . "'>" . $row["Modell"] . "</option>";
+							}
+							mysqli_close($conn);
+							?>
+                            
+                        </select><br/><br/>
+                        <label for="kommentar">Kommentar:</label><br/>
+                        <textarea required id="kommentar" name="kommentar" class="rezension_input"></textarea><br/><br/>
                         <input required type="checkbox" id="checkbox">
-                        <label for="checkbox">Ich habe die Datenschutzverordnung gelesen und bin einverstanden.</label><br><br>
-                        <div id="error"></div><br/>
-						<input class="rezension_input" id="rezension_submit" type="submit">
+                        <label for="checkbox">Ich habe die Datenschutzverordnung gelesen und bin einverstanden.</label><br/><br/>
+						<input class="rezension_input" id="rezension_submit" name="submit" type="submit"><br/><br/>
+						
+						<?php
+						if(isset($_POST['submit'])){
+							$bestnr = (int)$_POST["bestnr"]; 
+							$verfasser = trim($_POST["verfasser"]);
+							$prodid = (int)$_POST["prodid"];
+							$kommentar = $_POST["kommentar"]; 
+							
+							if($verfasser === ""){
+								$verfasser = "Anonym";
+							}
+							
+							include("connection.php");
+							
+							$sql = "INSERT INTO kommentare (Bestellnummer, Verfasser, ProduktID, Text) VALUES ($bestnr, '$verfasser', $prodid, '$kommentar')";
+							
+							if($conn->query($sql) === TRUE){
+								echo "Sie haben als " . $verfasser . " eine Rezension verfasst.<br/>Vielen Dank für Ihr Feedback!";
+							}else{
+								echo "<div style='color:red;'>Die angegebene Bestellnummer ist ungültig.</div>";
+							}
+							
+							$conn->close();
+						}
+						?>
+
+						<div id="error"></div>
                     </form>
                 </div>
             </div>
