@@ -4,47 +4,133 @@
 
 // Für Warenkorb-Sessions
 
-function initWarenkorb() {
+function initWarenkorb($products) {
 
   if(!array_key_exists("warenkorb", $_SESSION)) {
-    $neu = new warenkorb();
-    $_SESSION["warenkorb"] = new warenkorb();
+    $_SESSION["warenkorb"] = new warenkorb($products);
+    echo "Debug: Neuer Warenkorb erstellt<br/>";
   }
   return $_SESSION["warenkorb"];
 }
 
-function printWarenkorb() {
-  if(!empty($_SESSION["warenkorb"])) {
-    array_walk($_SESSION["warenkorb"], function ($value, $key) {
-      echo "$key, $value Stück<br />";
-    });
-  }else{
-      echo "Warenkorb ist leer.";
+function validInteger($num) {
+  if(!is_numeric($num) && !is_int($num + 0)) {
+    return false;
   }
+  return true;
 }
 
-function productIdIsValid($id) {
-  // TODO...
-return TRUE;
+function legalIntSize($int, $min, $max) {
+  if(($int >= $min) && ($int <= $max)) {
+    return true;
+  }
+  return false;
 }
 
 // Warenkorb Objekt
 
 class Warenkorb {
 
+  // Attribute
+
   private $inhalt;
+  private $products;
 
-  public function __construct() {
-  $inhalt = array();
-}
+  // Konstruktor
 
-function add($id) {
-   $this->inhalt[] = $id;
-}
+  public function __construct($products) {
+    $this->inhalt = array();
+    $this->products = $products;
+  }
 
-public function __toString() {
-  return (String) var_dump($this->inhalt); // zum Test
-}
+  // Warenkorb manipulieren
+
+  public function add($id, $qnty) {
+    if($this->isValidProductAndQuantity($id, $qnty)) {
+      if(array_key_exists($id, $this->inhalt)) {
+        $this->inhalt[$id] += $qnty;
+      }else{
+        $this->inhalt[$id] = $qnty;
+      }
+    }
+
+  }
+
+  public function remove($id, $qnty) {
+    if($this->isValidProductAndQuantity($id, $qnty) && array_key_exists($id, $this->inhalt)) {
+      if($this->inhalt[$id]-$qnty > 0) {
+        $this->inhalt[$id] -= $qnty;
+      }else{
+        unset($this->inhalt[$id]);
+      }
+    }
+  }
+
+
+  // Sonstige Methoden
+
+  private function isValidProductAndQuantity($id, $qnty) { // gültige ID und Mengenangabe
+    if(array_key_exists($id, $this->products) && validInteger($id) && legalIntSize($qnty, 1, 10)) {
+      return true;
+    }
+    return false;
+  }
+
+  public function sizeOf() {
+    return count($this->inhalt);
+  }
+
+  public function __toString() { // Zum Testen
+    $output = "";
+    foreach($this->inhalt as $id => $qnty) {
+      //  Warum gibt $this->products[$id] ein Array zurück?
+      $output .= $this->products[$id][0]->getName().", Stückzahl: $qnty<br />";
+    }
+    return $output;
+  }
+
+  public function total() {
+    $total = 0;
+
+    foreach($this->inhalt as $id => $qnty) {
+      $total += ($this->products[$id][0]->getCost())*$qnty;
+    }
+    return $total;
+  }
+
+  public function printHTML() { // pretty?
+    $output = "";
+    foreach($this->inhalt as $id => $qnty) {
+      $output .= "		<div class='nebeneinander'>
+      <div class='produkt_anzeige'>
+      <img src='".$this->products[$id][0]->getImg()."' alt='Produkt1'/>
+
+      <div class='produkt_text'>
+      <div>
+      <p>Produkt: ".$this->products[$id][0]->getName()."</p>
+
+      <p>Preis: ".$this->products[$id][0]->getCost()."</p>
+
+      </div>
+
+      <div class='produkt_buttons'>
+      <p> Menge:</p>
+      <select class='mengen_angabe' name='Menge'>";
+      for ($i = 0; $i < $qnty; $i++) {
+        $output .= "<option value='".$i."'>".($i+1)."</option>";
+      }
+      $output .= "
+
+      </select>
+
+      <input class='produkt_input' type='reset' value='Entfernen'/>
+      </div>
+      </div>
+      </div>
+      </div>";
+    }
+    return $output;
+  }
 
 }
 
@@ -58,43 +144,43 @@ class WindmannDBconnector {
   private $db;
   private $conn;
 
- public function __construct($host, $user, $pass, $db) {
-   $this->host = $host;
-   $this->user = $user;
-   $this->pass = $pass;
-   $this->db = $db;
- }
-
- public function connect() {
-   $this->conn = new mysqli($this->host, $this->user, $this->pass, $this->db);
-
-   if ($this->conn->connect_error) {
-     echo "Konnte nicht mit DB verbinden";
-     return false;
-   }
-   return true;
-}
-
-public function fetchProducts() {
-  if($this->conn == NULL) {
-    echo "conn ist null (Verbindung nicht hergestellt?)";
-    return false;
+  public function __construct($host, $user, $pass, $db) {
+    $this->host = $host;
+    $this->user = $user;
+    $this->pass = $pass;
+    $this->db = $db;
   }
 
-  $q = "SELECT * FROM produkte";
+  public function connect() {
+    $this->conn = new mysqli($this->host, $this->user, $this->pass, $this->db);
 
-  $result = $this->conn->query($q);
+    if ($this->conn->connect_error) {
+      echo "Konnte nicht mit DB verbinden";
+      return false;
+    }
+    return true;
+  }
 
-  $holder_array = Array();
+  public function fetchProducts() {
+    if($this->conn == NULL) {
+      echo "conn ist null (Verbindung nicht hergestellt?)";
+      return false;
+    }
 
-  while ($row=$result->fetch_assoc()){
+    $q = "SELECT * FROM produkte";
+
+    $result = $this->conn->query($q);
+
+    $holder_array = Array();
+
+    while ($row=$result->fetch_assoc()){
       //echo "$row[produktID] $row[modell] $row[nettopreis] $row[details] $row[blaskraft] <img src='$row[produktbild]'/> <br>";
-      $holder_array[] = [$row["ProduktID"] => new Product($row["ProduktID"], $row["Modell"], $row["Produktbild"], $row["Nettopreis"], 1, $row["Details"])];
+      $holder_array[$row["ProduktID"]][] = new Product($row["ProduktID"], $row["Modell"], $row["Produktbild"], $row["Nettopreis"], $row["Details"]);
+    }
+
+    return $holder_array;
+
   }
-
-  return $holder_array;
-
-}
 
 }
 
@@ -105,50 +191,61 @@ class Product implements JsonSerializable {
   private $name;
   private $img_url;
   private $cost;
-  private $qnty;
+  // private $qnty = 1;
   private $descr;
 
-    public function __construct($id, $name, $img_url, $cost, $qnty, $descr) {
-      $this->id = $id;
-      $this->name = $name;
-      $this->img_url = $img_url; // Achtung Bug URL Pfad
-      $this->cost = $cost;
-      $this->qnty = $qnty;
-      $this->descr = $descr;
-    }
+  public function __construct($id, $name, $img_url, $cost, $descr) {
+    $this->id = $id;
+    $this->name = $name;
+    $this->img_url = $img_url; // Achtung Bug URL Pfad
+    $this->cost = $cost;
+    $this->descr = $descr;
+  }
 
-    public function jsonSerialize() {
-      return array(
-            "id" => $this->id,
-            "name" => $this->name,
-            "img_url" => $this->img_url,
-            "cost" => $this->cost,
-            "qnty" => $this->qnty,
-            "descr" => $this->descr
-        );
-    }
+  public function jsonSerialize() {
+    return array(
+      "id" => $this->id,
+      "name" => $this->name,
+      "img_url" => $this->img_url,
+      "cost" => $this->cost,
+      //"qnty" => $this->qnty,
+      "descr" => $this->descr
+    );
+  }
 
-    public function getName() {
-      return $this->name;
-    }
+  public function __toString() {
+    return $this->name;
+  }
 
-    public function getImg() {
-      return $this->img_url;
-    }
+  // public function setQnty($int) {
+  //   $this->qnty = $int;
+  // }
 
-    public function getCost() {
-      return $this->cost;
-    }
+  public function getId() {
+    return $this->id;
+  }
 
-    public function getQnty() {
-      return $this->qnty;
-    }
+  public function getName() {
+    return $this->name;
+  }
 
-    public function getDescr() {
-      return $this->descr;
-    }
+  public function getImg() {
+    return $this->img_url;
+  }
+
+  public function getCost() {
+    return $this->cost;
+  }
+
+  // public function getQnty() {
+  //   return $this->qnty;
+  // }
+
+  public function getDescr() {
+    return $this->descr;
+  }
 
 
 }
 
- ?>
+?>
