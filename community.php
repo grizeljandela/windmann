@@ -1,3 +1,9 @@
+<?php 
+include("warenkorb_func.php");
+$db = new WindmannDBconnector("localhost", "root", "", "windmann");
+$db->connect();
+?>
+
 <!DOCTYPE html>
 
 <html lang="de">
@@ -58,18 +64,9 @@
                     <h3>Das sagen unsere Kunden:</h3>
 
 					<?php 
-					include("connection.php");
-					
-					$query = "SELECT k.Verfasser, k.Text, p.Modell FROM kommentare k INNER JOIN produkte p ON k.ProduktID = p.ProduktID ORDER BY RAND() LIMIT 4";
-					
-					$result = mysqli_query($conn, $query);
-
-					echo "<table>";
-					while($row = mysqli_fetch_array($result)){
-						echo "<tr><td>" . $row["Verfasser"] . "<br/><em>" . $row["Modell"] . "</em></td><td>" . $row["Text"] . "</td></tr>"; 
-					}
-					echo "</table>";
+						echo $db->buildCommentTable();
 					?>
+
                 </div>
 
                 <div class="content_right">
@@ -81,17 +78,9 @@
                         <input required class="rezension_input" id="bestnr" name="bestnr" type="number" min="100" max="999"><br/><br/>
                         <label for="produkt">Produkt:</label><br/>
                         <select class="rezension_input" id="produkt" name="prodid">
-                            <option value="0" selected>Alle Produkte</option>
 							
 							<?php 
-							$query = "SELECT ProduktID, Modell FROM produkte";
-							
-							$result = mysqli_query($conn, $query);
-							
-							while($row = mysqli_fetch_array($result)){
-								echo "<option value='" . $row["ProduktID"] . "'>" . $row["Modell"] . "</option>";
-							}
-							mysqli_close($conn);
+								echo $db->buildProductDropdown();
 							?>
                             
                         </select><br/><br/>
@@ -103,26 +92,16 @@
 						
 						<?php
 						if(isset($_POST['submit'])){
-							$bestnr = (int)$_POST["bestnr"]; 
 							$verfasser = trim($_POST["verfasser"]);
-							$prodid = (int)$_POST["prodid"];
-							$kommentar = $_POST["kommentar"]; 
-							
 							if($verfasser === ""){
 								$verfasser = "Anonym";
 							}
-							
-							include("connection.php");
-							
-							$sql = "INSERT INTO kommentare (Bestellnummer, Verfasser, ProduktID, Text) VALUES ($bestnr, '$verfasser', $prodid, '$kommentar')";
-							
-							if($conn->query($sql) === TRUE){
+
+							if($db->postComment((int)$_POST["bestnr"], $verfasser, (int)$_POST["prodid"], $_POST["kommentar"])){
 								echo "Sie haben als " . $verfasser . " eine Rezension verfasst.<br/>Vielen Dank für Ihr Feedback!";
 							}else{
-								echo "<div style='color:red;'>Die angegebene Bestellnummer ist ungültig.</div>";
+								echo "<div style='color:red;'>Die angegebene Bestellnummer ist ungültig oder es wurde bereits eine Rezension verfasst.</div>";
 							}
-							
-							$conn->close();
 						}
 						?>
 

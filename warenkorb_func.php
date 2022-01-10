@@ -182,6 +182,53 @@ class WindmannDBconnector {
 
   }
 
+  public function buildCommentTable(){
+    
+    $html = "";
+
+    $query = "SELECT k.Verfasser, k.Text, p.Modell FROM kommentare k LEFT JOIN produkte p ON k.ProduktID = p.ProduktID ORDER BY RAND() LIMIT 4";
+					
+    $result = $this->conn->query($query);
+
+    $html .= "<table>";
+    while($row = $result->fetch_assoc()){
+      $html .= "<tr><td>" . $row["Verfasser"] . "<br/><em>" . $row["Modell"] . "</em></td><td>" . $row["Text"] . "</td></tr>"; 
+    }
+    $html .= "</table>";
+
+    return $html;
+    }
+
+  public function buildProductDropdown(){
+    
+    $html = "";
+
+    $query = "SELECT ProduktID, Modell FROM produkte";
+		
+    $result = $this->conn->query($query);
+
+    $html .= "<option value='0' selected>Alle Produkte</option>";    
+    while($row = $result->fetch_assoc()){
+      $html .= "<option value='" . $row["ProduktID"] . "'>" . $row["Modell"] . "</option>";
+    }
+
+    return $html;
+  }
+
+  public function postComment($bestNr, $verfasser, $prodID, $kommentar){
+    $checkBestNr = $this->conn->query("SELECT * FROM kommentare WHERE Bestellnummer = $bestNr");
+    if($checkBestNr->num_rows > 0){
+      return FALSE;
+    }
+
+    if($prodID == 0){
+      $query = "INSERT INTO kommentare (Bestellnummer, Verfasser, Text) VALUES ($bestNr, '$verfasser', '$kommentar')";
+    }else{
+      $query = "INSERT INTO kommentare (Bestellnummer, Verfasser, ProduktID, Text) VALUES ($bestNr, '$verfasser', $prodID, '$kommentar')";
+    }
+    return $this->conn->query($query);
+  }
+
 }
 
 // DTO für Produkte im Warenkorb
