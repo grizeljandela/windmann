@@ -15,22 +15,22 @@
 
 		<?php 
 			$id = $_GET['id'];
-			//$modell="";
-			//$nettopreis=0;
-			//$details="";
-			//$blaskraft=0;
-			//$produktbild="";
+			$modell="";
+			$nettopreis=0;
+			$details="";
+			$blaskraft=0;
+			$produktbild="";
 
 			$file_json = file_get_contents('products.json');
 			$decoded_json = json_decode($file_json, true);
 			
 			foreach($decoded_json as $produkt){
-				if($produkt['produktID']==$id){
-					$modell=$produkt['modell'];
-					$nettopreis=$produkt['nettopreis'];
-					$details=$produkt['details'];
-					$blaskraft=$produkt['blaskraft'];
-					$produktbild=$produkt['produktbild'];
+				if($produkt['ProduktID']==$id){
+					$modell=$produkt['Modell'];
+					$nettopreis=$produkt['Nettopreis'];
+					$details=$produkt['Details'];
+					$blaskraft=$produkt['Blaskraft'];
+					$produktbild=$produkt['Produktbild'];
 					break;
 				}
 			}
@@ -111,9 +111,7 @@
 					<br/>
 					<p>Detail:</p>
 					<ul>
-						<li>Akku-Saughäcksel für Privatanwender</li>
-						<li>Für die schnelle und effiziente Reinigung</li>
-						<li>Schneller Wechsel von Blas- in Saugbetrieb</li>
+						<?php echo $details ?>
 					</ul>
 
 					<br/><br/><br/>
