@@ -47,31 +47,31 @@
 			=$straße_bool=$plz_bool=$wohnort_bool=$email_bool=$telNr_bool=$kontoinhaber_bool
 			=$bic_bool=$iban_bool=$agbs_bool=true;
 
-			if(!isset($_POST['Name'])||(strlen($_POST['Name'])< 2)) {
+			if(!isset($_POST['Name'])||(strlen($_POST['Name'])< 2)|| !is_string($_POST['Name'])) {
 				$name_bool=false;
 
-			}elseif(!isset($_POST['Vorname'])||(strlen($_POST['Vorname'])< 2)){
+			}elseif(!isset($_POST['Vorname'])||(strlen($_POST['Vorname'])< 2)|| !is_string($_POST['Vorname'])){
 				$vorname_bool=false;
 
-			}elseif(!isset($_POST['Straße'])||(strlen($_POST['Straße'])< 3)){
+			}elseif(!isset($_POST['Straße'])||(strlen($_POST['Straße'])< 3)|| !is_string($_POST['Straße'])){
 				$strasse_bool=false;
 
 			}elseif(!isset($_POST['Hausnummer'])||(strlen($_POST['Hausnummer'])< 1)){
 				$hausNr_bool=false;
 
-			}elseif(!isset($_POST['Straße'])||(strlen($_POST['Straße'])< 1)){
+			}elseif(!isset($_POST['Straße'])||(strlen($_POST['Straße'])< 1)|| !is_string($_POST['Straße'])){
 				$straße_bool=false;
 
-			}elseif(!isset($_POST['PLZ'])||strlen($_POST['PLZ'])< 4 || intval($_POST['PLZ']) <= 0){
+			}elseif(!isset($_POST['PLZ'])||strlen($_POST['PLZ'])< 4 || intval($_POST['PLZ']) <= 0|| !is_integer($_POST['PLZ'])){
 				$plz_bool=false;
 
-			}elseif(!isset($_POST['Wohnort'])||strlen($_POST['Wohnort'])< 4){
+			}elseif(!isset($_POST['Wohnort'])||strlen($_POST['Wohnort'])< 4|| !is_string($_POST['Wohnort'])){
 				$wohnort_bool=false;
 
-			}elseif(!filter_var($_POST['E-MAil-Adresse'], FILTER_VALIDATE_EMAIL)){
+			}elseif(!filter_var($_POST['E-MAil-Adresse'], FILTER_VALIDATE_EMAIL)|| !is_string($_POST['E-MAil-Adresse'])){
 				$email_bool=false;
 
-			}elseif(!preg_match("/^([0-9]{10})$/", $_POST['Telefonnummer'])){
+			}elseif(!preg_match("/^([0-9]{10})$/", $_POST['Telefonnummer'])|| !is_integer($_POST['Telefonnummer'])){
 				$telNr_bool=false;
 
 			}
