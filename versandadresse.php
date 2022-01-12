@@ -143,7 +143,7 @@
 				<br />
 				<label class="label_versand" for="Telefon"> Tel.Nummer</label>
 				<input class ="versand_input" type="number" id="Telefon" name="Telefonnummer" min="4" max ="20" required />
-
+				<br />
 			<h2>Zahlungsart</h2>
 			<h3>Lastschriftmandat</h3>
 
