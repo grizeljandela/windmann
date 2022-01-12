@@ -1,3 +1,8 @@
+<?php
+include("warenkorb_func.php");
+$db = new WindmannDBconnector("localhost", "dienstblaeser", "dienstblaeser", "windmann");
+$db->connect();
+?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -29,11 +34,11 @@
 
 			<nav>
 				<ul>
-					<li><a href = "index.html">Home</a></li>
+				<li><a href = "index.html">Home</a></li>
 					<li><a href = "produkte.php">Produkte</a></li>
-					<li><a href = "service.html">Service</a></li>
-					<li><a href = "community.html">Community</a></li>
-					<li><a href = "impressum.html">Impressum</a></li>
+					<li><a href="service.html">Service</a></li>
+					<li><a href="community.php">Community</a></li>
+					<li><a href="impressum.html">Impressum</a></li>
 					<li id="nav_highlighted"><a href = "warenkorb.php">Warenkorb</a></li>
 				</ul>
 			</nav>
@@ -169,6 +174,12 @@
 				<input class ="versand_input" type="reset" value="Angaben löschen" style="max-width:200px"/>
 				<input class ="versand_input" type="hidden" value="debug js" onclick="return pruefeEingabe()" style="max-width:200px"/>
 			</div>
+			<?php
+			if(isset($_POST['Bestätigen'])){
+				saveDispatch($versandDaten);
+				
+			}
+			?>
 		</div>
 		</form>
 	</main>

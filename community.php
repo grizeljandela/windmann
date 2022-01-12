@@ -1,6 +1,6 @@
 <?php
 include("warenkorb_func.php");
-$db = new WindmannDBconnector("localhost", "root", "", "windmann");
+$db = new WindmannDBconnector("localhost", "dienstblaeser", "dienstblaeser", "windmann");
 $db->connect();
 ?>
 

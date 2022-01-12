@@ -1,7 +1,7 @@
 <?php
 include("warenkorb_func.php");
 
-$windDB = new WindmannDBconnector("localhost", "root", "", "windmann");
+$windDB = new WindmannDBconnector("localhost", "dienstblaeser", "dienstblaeser", "windmann");
 
 $allProducts = array();
 
@@ -57,9 +57,9 @@ if(array_key_exists("remove", $_GET) && array_key_exists("qnty", $_GET)) {
 			<nav>
 				<ul>
 					<li><a href = "index.html">Home</a></li>
-					<li><a href = "produkte.html">Produkte</a></li>
+					<li><a href = "produkte.php">Produkte</a></li>
 					<li><a href="service.html">Service</a></li>
-					<li><a href="community.html">Community</a></li>
+					<li><a href="community.php">Community</a></li>
 					<li><a href="impressum.html">Impressum</a></li>
 					<li id="nav_highlighted"><a href = "warenkorb.php">Warenkorb</a></li>
 				</ul>
