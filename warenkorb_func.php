@@ -77,7 +77,11 @@ class Warenkorb {
   }
 
   public function sizeOf() {
-    return count($this->inhalt);
+    $summe = 0;
+    foreach($this->inhalt as $id => $qnty) {
+      $summe += $qnty;
+    }
+    return $summe;
   }
 
   public function __toString() { // Zum Testen
@@ -89,11 +93,20 @@ class Warenkorb {
     return $output;
   }
 
-  public function total() {
+  public function totalNetto() {
     $total = 0;
 
     foreach($this->inhalt as $id => $qnty) {
       $total += ($this->products[$id][0]->getCost())*$qnty;
+    }
+    return $total;
+  }
+
+  public function getMwst() {
+    $total = 0;
+
+    foreach($this->inhalt as $id => $qnty) {
+      $total += (($this->products[$id][0]->getCost())*0.19)*$qnty;
     }
     return $total;
   }
@@ -114,16 +127,18 @@ class Warenkorb {
       </div>
 
       <div class='produkt_buttons'>
-      <p> Menge:</p>
-      <select class='mengen_angabe' name='Menge'>";
+      <form action='warenkorb.php' method='get'>
+      <label for='qnty'>Menge:</label>
+      <select class='mengen_angabe' name='qnty'>";
       for ($i = 0; $i < $qnty; $i++) {
-        $output .= "<option value='".$i."'>".($i+1)."</option>";
+        $output .= "<option value='".($i+1)."'>".($i+1)."</option>";
       }
       $output .= "
 
       </select>
-
-      <input class='produkt_input' type='reset' value='Entfernen'/>
+      <input type='hidden' name='remove' value='".$this->products[$id][0]->getId()."' />
+      <input class='produkt_input' type='submit' value='Entfernen'/>
+      </form>
       </div>
       </div>
       </div>
@@ -183,16 +198,16 @@ class WindmannDBconnector {
   }
 
   public function buildCommentTable(){
-    
+
     $html = "";
 
     $query = "SELECT k.Verfasser, k.Text, p.Modell FROM kommentare k LEFT JOIN produkte p ON k.ProduktID = p.ProduktID ORDER BY RAND() LIMIT 4";
-					
+
     $result = $this->conn->query($query);
 
     $html .= "<table>";
     while($row = $result->fetch_assoc()){
-      $html .= "<tr><td>" . $row["Verfasser"] . "<br/><em>" . $row["Modell"] . "</em></td><td>" . $row["Text"] . "</td></tr>"; 
+      $html .= "<tr><td>" . $row["Verfasser"] . "<br/><em>" . $row["Modell"] . "</em></td><td>" . $row["Text"] . "</td></tr>";
     }
     $html .= "</table>";
 
@@ -200,14 +215,14 @@ class WindmannDBconnector {
     }
 
   public function buildProductDropdown(){
-    
+
     $html = "";
 
     $query = "SELECT ProduktID, Modell FROM produkte";
-		
+
     $result = $this->conn->query($query);
 
-    $html .= "<option value='0' selected>Alle Produkte</option>";    
+    $html .= "<option value='0' selected>Alle Produkte</option>";
     while($row = $result->fetch_assoc()){
       $html .= "<option value='" . $row["ProduktID"] . "'>" . $row["Modell"] . "</option>";
     }

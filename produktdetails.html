@@ -1,40 +1,15 @@
-
 <!DOCTYPE html>
 
 <html lang="de">
 
 	<head>
-		<meta charset="utf-8"/>
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
         <link rel="stylesheet" type="text/css" media="screen and (max-width: 700px)" href="style_mobil.css"/>
 		<link rel="icon" href="images/logo.png">
 		<title>Windmann Laubbläser</title>
-	</head>
-
-
-	<?php
-
-		require_once ("connection.php");
-
-		$q = "SELECT * FROM produkte";
-
-		$result = $conn->query($q);
-
-		$holder_array = Array();
-
-		while ($row=$result->fetch_assoc()){
-			//echo "$row[produktID] $row[modell] $row[nettopreis] $row[details] $row[blaskraft] <img src='$row[produktbild]'/> <br>";
-			$holder_array[] = $row;
-		}
-
-		$json_array = json_encode($holder_array);
-		//var_dump($json_array);   String JSON Array von Objekte, diese Objekte sind assoziative Arrays
-
-		file_put_contents("products.json", $json_array);
-
-	?>
-
+			</head>
 
 	<body>
 
@@ -54,12 +29,13 @@
 					<h1>WINDMANN</h1>
 					<h2>Wissen, woher der Wind weht</h2>
 				</div>
+
 			<nav>
 				<ul>
 					<li><a href = "index.html">Home</a></li>
-					<li id="nav_highlighted"><a href = "produkte.php">Produkte</a></li>
+					<li id="nav_highlighted"><a href = "produkte.html">Produkte</a></li>
 					<li><a href = "service.html">Service</a></li>
-					<li><a href = "community.php">Community</a></li>
+					<li><a href = "community.html">Community</a></li>
 					<li><a href = "impressum.html">Impressum</a></li>
 					<li><a href = "warenkorb.php">Warenkorb</a></li>
 				</ul>
@@ -68,24 +44,61 @@
 		</header>
 
 
-		<!--Filterleiste-->
 		<main class="content">
 
-			<div id="sortierung">
-				<label>Sortieren nach:</label>
-				<select class="sort-select">
-					<option value="Preis aufsteigend">Preis aufsteigend</option>
-					<option value="Preis absteigend">Preis absteigend</option>
-					<option value="Blaskraft aufsteigend">Blaskraft aufsteigend</option>
-					<option value="Blaskraft absteigend">Blaskraft absteigend</option>
-				</select>
+			<h2 class="artikelHeader">WM 2500</h2>
+
+			<div class="produktbild-kosten">
+
+				<div class="produktbild">
+					<img src="images/wm_2500.jpg"  alt="wm_2500">
+				</div>
+
+				<div class="kosten">
+
+					<p>Preis: 250€<br/>
+					z.Z. MwSt. 19%<br/>
+					z.Z. Versandtkosten 19,95€<br/>
+					</p>
+					<div class="anzahl_kont">
+
+						<label for="anzahl">Anzahl:</label>
+					    <select class="mengen_angabe_produkt" name="Menge">
+							<option value="0" selected>1</option>
+							<option value="1">2</option>
+							<option value="2">3</option>
+							<option value="3">4</option>
+							<option value="4">5</option>
+							<option value="5">6</option>
+							<option value="6">7</option>
+							<option value="7">8</option>
+							<option value="8">9</option>
+							<option value="9">10</option>
+						</select>
+					</div>
+					<button type="submit">In den Warenkorb</button>
+				</div>
+			</div>
+			</div>
+			<div class="produktinfo_container">
+				<div class="produktinfo0">
+					<p>Artikelnummer: 1</p>
+					<br/>
+					<p>Detail:</p>
+					<ul>
+						<li>Akku-Saughäcksel für Privatanwender</li>
+						<li>Für die schnelle und effiziente Reinigung</li>
+						<li>Schneller Wechsel von Blas- in Saugbetrieb</li>
+					</ul>
+
+					<br/><br/><br/>
+					<p>Blaskraft</p>
+					<p><b>8N</b></p>
+				</div>
 			</div>
 
-
-			<div class="produkte-frame"></div>
 		</main>
-
-		<!-- Fusszeile -->
+        		<!-- Fusszeile -->
 		<footer>
 			<div class="footer_element">
 				<h5>Windmann-Seite</h5>
@@ -111,10 +124,10 @@
 				<h5>Hilfe</h5>
 				<h6><a href ="service.html">Kundenservice</a></h6>
 			</div>
+
+
 		</footer>
+			<script src="app.js"></script>
+		</body>
 
-		<script src="sort_products.js"></script>
-		<script src="app.js"></script>
-	</body>
-
-</html>
+    </html>

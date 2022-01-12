@@ -15,10 +15,12 @@ $warenkorb = initWarenkorb($allProducts);
 
 if(array_key_exists("add", $_GET) && array_key_exists("qnty", $_GET)) {
 	$warenkorb->add($_GET["add"], $_GET["qnty"]);
+	header("Location: warenkorb.php");
 }
 
 if(array_key_exists("remove", $_GET) && array_key_exists("qnty", $_GET)) {
 	$warenkorb->remove($_GET["remove"], $_GET["qnty"]);
+	header("Location: warenkorb.php");
 }
 
 ?>
@@ -59,7 +61,7 @@ if(array_key_exists("remove", $_GET) && array_key_exists("qnty", $_GET)) {
 					<li><a href="service.html">Service</a></li>
 					<li><a href="community.html">Community</a></li>
 					<li><a href="impressum.html">Impressum</a></li>
-					<li id="nav_highlighted"><a href = "warenkorb.html">Warenkorb</a></li>
+					<li id="nav_highlighted"><a href = "warenkorb.php">Warenkorb</a></li>
 				</ul>
 			</nav>
 
@@ -79,11 +81,11 @@ if(array_key_exists("remove", $_GET) && array_key_exists("qnty", $_GET)) {
 			</div>
 			<div class="produkt_summe">
 
-				<h3>Summe (2 Artikel):</h3>
-				<p>Produktpreis: <?php echo $warenkorb->total(); ?>€</p>
+				<h3>Summe (<?php echo $warenkorb->sizeOf(); ?> Artikel):</h3>
+				<p>Produktpreis: <?php echo number_format($warenkorb->totalNetto(), 2, '.', ''); ?>€</p>
 				<P>Versandkosten: 19,95€</p>
-					<p>Mwst.: TODO</p>
-					<h3>Insgesamt: TODO €</h3>
+					<p>Mwst.: <?php echo number_format($warenkorb->getMwst(), 2, '.', ''); ?>€</p>
+					<h3>Insgesamt: <?php echo ($warenkorb->totalNetto()+$warenkorb->getMwst()+19.95); ?> €</h3>
 					<a href="versandadresse.html"><input class="produkt_input" type="submit" value="Bezahlen" /></a>
 				</div>
 			</div>

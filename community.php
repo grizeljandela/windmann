@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("warenkorb_func.php");
 $db = new WindmannDBconnector("localhost", "root", "", "windmann");
 $db->connect();
@@ -44,7 +44,7 @@ $db->connect();
 				    	<li><a href = "service.html">Service</a></li>
 				    	<li id="nav_highlighted"><a href = "community.php">Community</a></li>
 				    	<li><a href = "impressum.html">Impressum</a></li>
-				    	<li><a href = "warenkorb.html">Warenkorb</a></li>
+				    	<li><a href = "warenkorb.php">Warenkorb</a></li>
 				    </ul>
 			    </nav>
 			</div>
@@ -63,7 +63,7 @@ $db->connect();
                 <div class="content_left">
                     <h3>Das sagen unsere Kunden:</h3>
 
-					<?php 
+					<?php
 						echo $db->buildCommentTable();
 					?>
 
@@ -78,18 +78,18 @@ $db->connect();
                         <input required class="rezension_input" id="bestnr" name="bestnr" type="number" min="100" max="999"><br/><br/>
                         <label for="produkt">Produkt:</label><br/>
                         <select class="rezension_input" id="produkt" name="prodid">
-							
-							<?php 
+
+							<?php
 								echo $db->buildProductDropdown();
 							?>
-                            
+
                         </select><br/><br/>
                         <label for="kommentar">Kommentar:</label><br/>
                         <textarea required id="kommentar" name="kommentar" class="rezension_input"></textarea><br/><br/>
                         <input required type="checkbox" id="checkbox">
                         <label for="checkbox">Ich habe die Datenschutzverordnung gelesen und bin einverstanden.</label><br/><br/>
 						<input class="rezension_input" id="rezension_submit" name="submit" type="submit"><br/><br/>
-						
+
 						<?php
 						if(isset($_POST['submit'])){
 							$verfasser = trim($_POST["verfasser"]);

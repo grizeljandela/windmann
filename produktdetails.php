@@ -13,7 +13,7 @@
 
 	<body>
 
-		<?php 
+		<?php
 			$id = $_GET['id'];
 			$modell="";
 			$nettopreis=0;
@@ -23,7 +23,7 @@
 
 			$file_json = file_get_contents('products.json');
 			$decoded_json = json_decode($file_json, true);
-			
+
 			foreach($decoded_json as $produkt){
 				if($produkt['ProduktID']==$id){
 					$modell=$produkt['Modell'];
@@ -62,7 +62,7 @@
 					<li><a href = "service.html">Service</a></li>
 					<li><a href = "community.php">Community</a></li>
 					<li><a href = "impressum.html">Impressum</a></li>
-					<li><a href = "warenkorb.html">Warenkorb</a></li>
+					<li><a href = "warenkorb.php">Warenkorb</a></li>
 				</ul>
 			</nav>
 			</div>
@@ -86,22 +86,25 @@
 					z.Z. Versandtkosten 19,95€<br/>
 					</p>
 					<div class="anzahl_kont">
-					
-						<label for="anzahl">Anzahl:</label>
-					    <select class="mengen_angabe_produkt" name="Menge">
-							<option value="0" selected>1</option>
-							<option value="1">2</option>
-							<option value="2">3</option>
-							<option value="3">4</option>
-							<option value="4">5</option>
-							<option value="5">6</option>
-							<option value="6">7</option>
-							<option value="7">8</option>
-							<option value="8">9</option>
-							<option value="9">10</option>
+
+					<form action="warenkorb.php" method="get">
+						<label for="qnty">Anzahl:</label>
+					    <select class="mengen_angabe_produkt" name="qnty">
+							<option value="1" selected>1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
 						</select>
 					</div>
+					<input type="hidden" name="add" value="<?php echo $id; ?>" />
 					<button type="submit">In den Warenkorb</button>
+				</form>
 				</div>
 			</div>
 			</div>
