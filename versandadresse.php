@@ -1,7 +1,17 @@
 <?php
 include("warenkorb_func.php");
 $db = new WindmannDBconnector("localhost", "dienstblaeser", "dienstblaeser", "windmann");
-$db->connect();
+
+$allProducts = array();
+
+if($db->connect()) {
+	$allProducts = $db->fetchProducts();
+}
+
+session_start();
+
+$warenkorb = initWarenkorb($allProducts);
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -147,7 +157,7 @@ $db->connect();
 				<input class ="versand_input" type="email" id="Mail" name="E-MAil-Adresse" required />
 				<br />
 				<label class="label_versand" for="Telefon"> Tel.Nummer</label>
-				<input class ="versand_input" type="number" id="Telefon" name="Telefonnummer" min="4" max ="20" required />
+				<input class ="versand_input" type="number" id="Telefon" name="Telefonnummer" required />
 					<br />
 			<h2>Zahlungsart</h2>
 			<h3>Lastschriftmandat</h3>
@@ -176,8 +186,8 @@ $db->connect();
 			</div>
 			<?php
 			if(isset($_POST['Bestätigen'])){
-				saveDispatch($versandDaten);
-				
+				$warenkorb->saveDispatch($versandDaten);
+
 			}
 			?>
 		</div>

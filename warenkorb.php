@@ -86,7 +86,7 @@ if(array_key_exists("remove", $_GET) && array_key_exists("qnty", $_GET)) {
 				<P>Versandkosten: 19,95€</p>
 					<p>Mwst.: <?php echo number_format($warenkorb->getMwst(), 2, '.', ''); ?>€</p>
 					<h3>Insgesamt: <?php echo ($warenkorb->totalNetto()+$warenkorb->getMwst()+19.95); ?> €</h3>
-					<a href="versandadresse.html"><input class="produkt_input" type="submit" value="Bezahlen" /></a>
+					<a href="versandadresse.php"><input class="produkt_input" type="submit" value="Bezahlen" /></a>
 				</div>
 			</div>
 		</main>
