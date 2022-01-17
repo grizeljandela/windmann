@@ -1,16 +1,7 @@
 <?php
-include("warenkorb_func.php");
-$db = new WindmannDBconnector("localhost", "dienstblaeser", "dienstblaeser", "windmann");
-
-$allProducts = array();
-
-if($db->connect()) {
-	$allProducts = $db->fetchProducts();
-}
-
-session_start();
-
-$warenkorb = initWarenkorb($allProducts);
+$host='localhost';
+$dbName='windmann';
+$dbh=new PDO("mysql:host=$host;dbname=$dbName",$user='root',$pwd="");
 
 ?>
 <!DOCTYPE html>
@@ -184,12 +175,44 @@ $warenkorb = initWarenkorb($allProducts);
 				<input class ="versand_input" type="reset" value="Angaben löschen" style="max-width:200px"/>
 				<input class ="versand_input" type="hidden" value="debug js" onclick="return pruefeEingabe()" style="max-width:200px"/>
 			</div>
-			<?php
+			 <?php
+		//$versandDaten = array ();
 			if(isset($_POST['Bestätigen'])){
-				$warenkorb->saveDispatch($versandDaten);
-
+				/*$versandDaten['Name'] = $_POST['Name'];
+				$versandDaten['Vorname'] = $_POST['Vorname'];
+				$versandDaten['Straße'] = $_POST['Straße'];
+				$versandDaten['Hausnummer'] = (int)$_POST['Hausnummer'];
+				$versandDaten['Adresszusatz'] = $_POST['Adresszusatz'];
+				$versandDaten['Plz'] = (int)$_POST['PLZ'];
+				$versandDaten['Wohnort'] = $_POST['Wohnort'];
+				$versandDaten['E-Mail-Adresse'] = $_POST['E-MAil-Adresse'];
+				$versandDaten['TelefonNr'] =(int) $_POST['Telefonnummer'];
+				$versandDaten['Kontoinhaber'] = $_POST['Kontoinhaber'];
+				$versandDaten['BIC'] = $_POST['BIC'];
+				$versandDaten['IBAN'] = $_POST['IBAN'];*/
+				 
+					$datum=date("Y-m-d H:i:s");
+					$sql = "INSERT INTO bestellungen(Datum, Vorname, Nachname, Straße, Hausnr, Plz, Wohnort, Adresszusatz, Email, Telefonnummer, Kontoinhaber, Iban, Bic) VALUES(:datum,:vorname,:nachname,:strasse,:hausnr,:plz,:wohnort,:adresszusatz,:email,:telefonnr,:kontoinhaber,:iban,:bic)";
+					$stmt= $dbh->prepare($sql);
+					$stmt->bindValue(':datum',$datum);
+					$stmt->bindValue(':vorname',$versandDaten['Vorname']);
+					$stmt->bindValue(':nachname',$versandDaten['Name']);
+					$stmt->bindValue(':strasse',$versandDaten['Straße']);
+					$stmt->bindValue(':hausnr',$versandDaten['Hausnummer']);
+					$stmt->bindValue(':plz',$versandDaten['Plz'] );
+					$stmt->bindValue(':wohnort',$versandDaten['Wohnort']);
+					$stmt->bindValue(':adresszusatz',$versandDaten['Adresszusatz']);
+					$stmt->bindValue(':email',$versandDaten['E-Mail-Adresse'] );
+					$stmt->bindValue(':telefonnr',$versandDaten['TelefonNr']);
+					$stmt->bindValue(':kontoinhaber',$versandDaten['Kontoinhaber']);
+					$stmt->bindValue(':iban',$versandDaten['IBAN']);
+					$stmt->bindValue(':bic',$versandDaten['BIC']);
+					$stmt->execute();
+					echo('<meta http-equiv="refresh" content="0;url=bestellbestaetigung.php" />');	
 			}
-			?>
+			
+			
+		?>
 		</div>
 		</form>
 	</main>
