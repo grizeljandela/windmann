@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -28,11 +29,11 @@
 
 			<nav>
 				<ul>
-					<li><a href = "index.html">Home</a></li>
+				<li><a href = "index.html">Home</a></li>
 					<li><a href = "produkte.php">Produkte</a></li>
-					<li><a href = "service.html">Service</a></li>
-					<li><a href = "community.php">Community</a></li>
-					<li><a href = "impressum.html">Impressum</a></li>
+					<li><a href="service.html">Service</a></li>
+					<li><a href="community.php">Community</a></li>
+					<li><a href="impressum.html">Impressum</a></li>
 					<li id="nav_highlighted"><a href = "warenkorb.php">Warenkorb</a></li>
 				</ul>
 			</nav>
@@ -47,7 +48,18 @@
 			<div class="bestaetigungs_text">
 				<h3>Vielen Dank für Ihre Bestellung!</h3>
 
-				<p>	Bitte notieren Sie sich Ihre Bestellnummer 100 für die spätere Referenz Ihrer Bestellung.</p>
+				<p>	Bitte notieren Sie sich Ihre Bestellnummer
+					<font color=#fb9a63>
+					 <?php 
+					 require_once ("connection.php");
+					 $q ="SELECT * FROM bestellungen ORDER BY Bestellnummer DESC LIMIT 1";
+					 $result = $conn->query($q);
+					 while($row=$result->fetch_assoc()){
+							echo $row['Bestellnummer'];
+					 }
+					 ?> 
+					 </font>
+					 für die spätere Referenz Ihrer Bestellung.</p>
 			</div>
 
 		</main>
