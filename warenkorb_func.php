@@ -243,26 +243,6 @@ class WindmannDBconnector {
     }
     return $this->conn->query($query);
   }
-  public function saveDispatch($versandDaten){
-    $datum=date("Y-m-d H:i:s");
-    $sql = "INSERT INTO `bestellungen`(`Datum`, `Vorname`, `Nachname`, `Straße`, `Hausnr`, `Plz`, `Wohnort`, `Adresszusatz`, `Email`, `Telefonnummer`, `Kontoinhaber`, `Iban`, `Bic`) VALUES(:datum,:vorname,:nachname,:strasse,:hausnr,:plz,:wohnort,:adresszusatz,:email,:telefonnr,:kontoinhaber,:iban,:bic)";
-    $stmt= $conn->prepare($sql);
-    $stmt->bindValue(':datum',$datum);
-    $stmt->bindValue(':vorname',$versandDaten['Vorname']);
-    $stmt->bindValue(':nachname',$versandDaten['Name']);
-    $stmt->bindValue(':strasse',$versandDaten['Straße']);
-    $stmt->bindValue(':hausnr',$versandDaten['Hausnummer']);
-    $stmt->bindValue(':plz',$versandDaten['Plz'] );
-    $stmt->bindValue(':wohnort',$versandDaten['Wohnort']);
-    $stmt->bindValue(':adresszusatz',$versandDaten['Adresszusatz']);
-    $stmt->bindValue(':email',$versandDaten['E-Mail-Adresse'] );
-    $stmt->bindValue(':telefonnr',$versandDaten['TelefonNr']);
-    $stmt->bindValue(':kontoinhaber',$versandDaten['Kontoinhaber']);
-    $stmt->bindValue(':iban',$versandDaten['IBAN']);
-    $stmt->bindValue(':bic',$versandDaten['BIC']);
-
-    echo '<a href ="bestellbestaetigung.html" title="Bestellbestaetigung">Bestellbestätigung</a>';
-  }
 
 }
 
