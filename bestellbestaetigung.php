@@ -52,10 +52,13 @@
 					<font color=#fb9a63>
 					 <?php 
 					 require_once ("connection.php");
-					 $q ="SELECT * FROM bestellungen ORDER BY Bestellnummer DESC LIMIT 1";
-					 $result = $conn->query($q);
-					 while($row=$result->fetch_assoc()){
-							echo $row['Bestellnummer'];
+					 $q ="SELECT Bestellnummer FROM bestellungen ORDER BY Bestellnummer DESC LIMIT 1";
+
+					 $pstmt = $conn->prepare($q);
+					 $pstmt->bind_result($bestnr);
+					 $pstmt->execute();
+					 while($pstmt->fetch()){
+							echo $bestnr;
 					 }
 					 ?> 
 					 </font>
