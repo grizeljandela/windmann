@@ -48,36 +48,36 @@ $dbh=new PDO("mysql:host=$host;dbname=$dbName",$user='root',$pwd="");
 
 	<?php
 			$versandDaten = array ();
-
+			session_start();
 			$name_bool=$vorname_bool=$straße_bool=$hausNr_bool
 			=$straße_bool=$plz_bool=$wohnort_bool=$email_bool=$telNr_bool=$kontoinhaber_bool
 			=$bic_bool=$iban_bool=$agbs_bool=true;
 
-			if(!isset($_POST['Name'])||(strlen($_POST['Name'])< 2)|| !is_string($_POST['Name'])) {
+			if(!isset($_POST['Name'])||(strlen($_POST['Name'])< 2)) {
 				$name_bool=false;
 
-			}elseif(!isset($_POST['Vorname'])||(strlen($_POST['Vorname'])< 2)|| !is_string($_POST['Vorname'])){
+			}elseif(!isset($_POST['Vorname'])||(strlen($_POST['Vorname'])< 2)){
 				$vorname_bool=false;
 
-			}elseif(!isset($_POST['Straße'])||(strlen($_POST['Straße'])< 3)|| !is_string($_POST['Straße'])){
+			}elseif(!isset($_POST['Straße'])||(strlen($_POST['Straße'])< 3)){
 				$strasse_bool=false;
 
-			}elseif(!isset($_POST['Hausnummer'])||(strlen($_POST['Hausnummer'])< 1)){
+			}elseif(!isset($_POST['Hausnummer'])){
 				$hausNr_bool=false;
 
-			}elseif(!isset($_POST['Straße'])||(strlen($_POST['Straße'])< 1)|| !is_string($_POST['Straße'])){
+			}elseif(!isset($_POST['Straße'])||(strlen($_POST['Straße'])< 1)){
 				$straße_bool=false;
 
-			}elseif(!isset($_POST['PLZ'])||strlen($_POST['PLZ'])< 4 || intval($_POST['PLZ']) <= 0|| !is_integer($_POST['PLZ'])){
+			}elseif(!isset($_POST['PLZ'])||strlen($_POST['PLZ'])< 4 || intval($_POST['PLZ']) <= 0){
 				$plz_bool=false;
 
-			}elseif(!isset($_POST['Wohnort'])||strlen($_POST['Wohnort'])< 4|| !is_string($_POST['Wohnort'])){
+			}elseif(!isset($_POST['Wohnort'])||strlen($_POST['Wohnort'])< 4){
 				$wohnort_bool=false;
 
-			}elseif(!filter_var($_POST['E-MAil-Adresse'], FILTER_VALIDATE_EMAIL)|| !is_string($_POST['E-MAil-Adresse'])){
+			}elseif(!filter_var($_POST['E-MAil-Adresse'], FILTER_VALIDATE_EMAIL)){
 				$email_bool=false;
 
-			}elseif(!preg_match("/^([0-9]{10})$/", $_POST['Telefonnummer'])|| !is_integer($_POST['Telefonnummer'])){
+			}elseif(!isset($_POST['Telefonnummer'])){
 				$telNr_bool=false;
 
 			}
@@ -111,6 +111,8 @@ $dbh=new PDO("mysql:host=$host;dbname=$dbName",$user='root',$pwd="");
 				$versandDaten['BIC'] = $_POST['BIC'];
 				$versandDaten['IBAN'] = $_POST['IBAN'];
 				$versandDaten['agbs'] = $_POST['AGBs'];
+
+
 			}
 
 	?>
@@ -121,6 +123,8 @@ $dbh=new PDO("mysql:host=$host;dbname=$dbName",$user='root',$pwd="");
 				<img src="images/versandadresse.jpg" alt="Versandadresse"/>
 				<h1>Versandadresse</h1>
 			</div>
+
+
 			<form id="formular" action="versandadresse.php" method="post">
 		<div class="all_inclusiv">
 			<label class="label_versand" for="Name"> Name</label>
@@ -130,38 +134,38 @@ $dbh=new PDO("mysql:host=$host;dbname=$dbName",$user='root',$pwd="");
 				<input class ="versand_input" type="text" id="Vorname" name="Vorname" required />
 				<br />
 				<label class="label_versand" for="Strasse"> Straße</label>
-				<input class ="versand_input" type="text" id="Strasse" name="Straße" required />
+				<input class ="versand_input" type="text" id="Strasse" name="Straße"required/>
 				<br />
 				<label class="label_versand" for="Hausnummer"> Hausnummer</label>
-				<input class ="versand_input" type="number" id="Hausnummer" name="Hausnummer" required />
+				<input class ="versand_input" type="number" id="Hausnummer" name="Hausnummer" required/>
 				<br />
 				<label class="label_versand" for="Adresszusatz"> Adresszusatz</label>
-				<input class ="versand_input" type="text" id="Adresszusatz" name="Adresszusatz" />
+				<input class ="versand_input" type="text" id="Adresszusatz" name="Adresszusatz" required/>
 				<br />
 				<label class="label_versand" for="PLZ"> PLZ</label>
-				<input class ="versand_input" type="number" id="Plz" name="PLZ" min="3" required />
+				<input class ="versand_input" type="number" id="Plz" name="PLZ" min="3" required/>
 				<br />
 				<label class="label_versand" for="Wohnort"> Wohnort</label>
-				<input class ="versand_input" type="text" id="Wohnort" name="Wohnort" required />
+				<input class ="versand_input" type="text" id="Wohnort" name="Wohnort" required/>
 				<br />
 				<label class="label_versand" for="E-MAil-Adresse"> E-Mail</label>
-				<input class ="versand_input" type="email" id="Mail" name="E-MAil-Adresse" required />
+				<input class ="versand_input" type="email" id="Mail" name="E-MAil-Adresse"  required/>
 				<br />
 				<label class="label_versand" for="Telefon"> Tel.Nummer</label>
-				<input class ="versand_input" type="number" id="Telefon" name="Telefonnummer" required />
+				<input class ="versand_input" type="number" id="Telefon" name="Telefonnummer"  required/>
 					<br />
 			<h2>Zahlungsart</h2>
 			<h3>Lastschriftmandat</h3>
 
 				<div class="konto">
 						<label class="label_versand" for="Kontoinhaber"> Kontoinhaber</label>
-						<input class ="versand_input" type="text" id="Kontoinhaber" name="Kontoinhaber"  >
+						<input class ="versand_input" type="text" id="Kontoinhaber" name="Kontoinhaber" required />
 						<br />
 						<label class="label_versand" for="BIC"> BIC</label>
-						<input class ="versand_input" type="text" id="Bic" name="BIC"  />
+						<input class ="versand_input" type="text" id="Bic" name="BIC" required />
 						<br />
 						<label class="label_versand" for="IBAN"> IBAN</label>
-						<input class ="versand_input" type="text" id="Iban" name="IBAN" />
+						<input class ="versand_input" type="text" id="Iban" name="IBAN" required />
 						<br/>
 						<input type="checkbox" id="AGBs" name="AGBs"  />
 						<label for="AGBs"> Ich akzeptiere die genannten Datenschutzbedingungen</label>
@@ -172,7 +176,7 @@ $dbh=new PDO("mysql:host=$host;dbname=$dbName",$user='root',$pwd="");
 
 			<div class="buttons_versand">
 				<input class ="versand_input" type="submit" value="Bestätigen" style="max-width:200px"/>
-				<input class ="versand_input" type="reset" value="Angaben löschen" style="max-width:200px"/>
+				<input class ="versand_input" type="reset" name="remove" value="Angaben löschen" style="max-width:200px"/>
 				<input class ="versand_input" type="hidden" value="debug js" onclick="return pruefeEingabe()" style="max-width:200px"/>
 			</div>
 			 <?php
@@ -190,7 +194,7 @@ $dbh=new PDO("mysql:host=$host;dbname=$dbName",$user='root',$pwd="");
 				$versandDaten['Kontoinhaber'] = $_POST['Kontoinhaber'];
 				$versandDaten['BIC'] = $_POST['BIC'];
 				$versandDaten['IBAN'] = $_POST['IBAN'];*/
-				 
+
 					$datum=date("Y-m-d H:i:s");
 					$sql = "INSERT INTO bestellungen(Datum, Vorname, Nachname, Straße, Hausnr, Plz, Wohnort, Adresszusatz, Email, Telefonnummer, Kontoinhaber, Iban, Bic) VALUES(:datum,:vorname,:nachname,:strasse,:hausnr,:plz,:wohnort,:adresszusatz,:email,:telefonnr,:kontoinhaber,:iban,:bic)";
 					$stmt= $dbh->prepare($sql);
@@ -208,10 +212,10 @@ $dbh=new PDO("mysql:host=$host;dbname=$dbName",$user='root',$pwd="");
 					$stmt->bindValue(':iban',$versandDaten['IBAN']);
 					$stmt->bindValue(':bic',$versandDaten['BIC']);
 					$stmt->execute();
-					echo('<meta http-equiv="refresh" content="0;url=bestellbestaetigung.php" />');	
+					echo('<meta http-equiv="refresh" content="0;url=bestellbestaetigung.php" />');
 			}
-			
-			
+
+
 		?>
 		</div>
 		</form>
