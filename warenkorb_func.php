@@ -184,13 +184,15 @@ class WindmannDBconnector {
 
     $q = "SELECT * FROM produkte";
 
-    $result = $this->conn->query($q);
+    $pstmt = $this->conn->prepare($q); 
+    $pstmt->bind_result($prodID, $modell, $netto, $details, $blaskraft, $produktbild);
+    $pstmt->execute();
 
     $holder_array = Array();
 
-    while ($row=$result->fetch_assoc()){
+    while ($pstmt->fetch()){
       //echo "$row[produktID] $row[modell] $row[nettopreis] $row[details] $row[blaskraft] <img src='$row[produktbild]'/> <br>";
-      $holder_array[$row["ProduktID"]][] = new Product($row["ProduktID"], $row["Modell"], $row["Produktbild"], $row["Nettopreis"], $row["Details"]);
+      $holder_array[$prodID][] = new Product($prodID, $modell, $produktbild, $netto, $details);
     }
 
     return $holder_array;
@@ -201,13 +203,15 @@ class WindmannDBconnector {
 
     $html = "";
 
-    $query = "SELECT k.Verfasser, k.Text, p.Modell FROM kommentare k LEFT JOIN produkte p ON k.ProduktID = p.ProduktID ORDER BY RAND() LIMIT 4";
-
-    $result = $this->conn->query($query);
-
+    $query = "SELECT k.Verfasser, k.Text, p.Modell FROM kommentare k LEFT JOIN produkte p ON k.ProduktID = p.ProduktID ORDER BY RAND() LIMIT ?";
+    $pstmt = $this->conn->prepare($query);
+    $limit = 4;
+    $pstmt->bind_param("i", $limit);
+    $pstmt->bind_result($verfasser, $kommentar, $modell);
+    $pstmt->execute();
     $html .= "<table>";
-    while($row = $result->fetch_assoc()){
-      $html .= "<tr><td>" . $row["Verfasser"] . "<br/><em>" . $row["Modell"] . "</em></td><td>" . $row["Text"] . "</td></tr>";
+    while($pstmt->fetch()){
+      $html .= "<tr><td>$verfasser<br/><em>$modell</em></td><td>$kommentar</td></tr>";
     }
     $html .= "</table>";
 
@@ -219,20 +223,25 @@ class WindmannDBconnector {
     $html = "";
 
     $query = "SELECT ProduktID, Modell FROM produkte";
-
-    $result = $this->conn->query($query);
+    $pstmt = $this->conn->prepare($query);
+    $pstmt->bind_result($prodID, $modell);
+    $pstmt->execute();
 
     $html .= "<option value='0' selected>Alle Produkte</option>";
-    while($row = $result->fetch_assoc()){
-      $html .= "<option value='" . $row["ProduktID"] . "'>" . $row["Modell"] . "</option>";
+    while($pstmt->fetch()){
+      $html .= "<option value='$prodID'>$modell</option>";
     }
 
     return $html;
   }
 
   public function postComment($bestNr, $verfasser, $prodID, $kommentar){
-    $checkBestNr = $this->conn->query("SELECT * FROM kommentare WHERE Bestellnummer = $bestNr");
-    if($checkBestNr->num_rows > 0){
+
+    $checkBestNr = $this->conn->prepare("SELECT ProduktID FROM kommentare WHERE Bestellnummer = ?");
+    $checkBestNr->bind_param("i", $bestNr);
+    $checkBestNr->bind_result($id);
+    $checkBestNr->execute();
+    if($checkBestNr->fetch()){
       return FALSE;
     }
 
@@ -241,7 +250,9 @@ class WindmannDBconnector {
     }else{
       $query = "INSERT INTO kommentare (Bestellnummer, Verfasser, ProduktID, Text) VALUES ($bestNr, '$verfasser', $prodID, '$kommentar')";
     }
-    return $this->conn->query($query);
+    $pstmt = $this->conn->prepare($query);
+    
+    return $pstmt->execute();;
   }
 
 }
